@@ -121,6 +121,11 @@ namespace Scripts.Game.Manager
 
         private void OnValidate()
         {
+            
+        }
+
+        private void Awake()
+        {
             _spawnpoints = new List<Spawnpoint>(FindObjectsOfType<Spawnpoint>());
         }
 
