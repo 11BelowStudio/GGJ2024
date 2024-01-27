@@ -4305,7 +4305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceTargetPose: 0
   _ragdollBindings: {fileID: 2704347747408039176}
-  currentProfile: {fileID: 11400000, guid: d1e79c45c2bc8cb4cb18ced64e094cb9, type: 2}
+  currentProfile: {fileID: 11400000, guid: 0768fe0ae1006f541a70bc9238288e77, type: 2}
   _masterAlpha: 1
   _masterDampingRatio: 1
   _profileTransitionLength: 1
