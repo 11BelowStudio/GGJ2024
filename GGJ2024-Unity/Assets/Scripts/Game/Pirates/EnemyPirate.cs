@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Scripts.Game.Pirates
+namespace Assets.Scripts.Game.Pirates
 {
     public class EnemyPirate : Pirate
     {

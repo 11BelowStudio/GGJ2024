@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Scripts.Game.Pirates
+namespace Assets.Scripts.Game.Pirates
 {
     /// <summary>
     /// The bits of the pirate which take damage when they get hit by a feathery sword
