@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.015
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 5bbd26511b9f1594f8a0662eb1591f9c, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.6577157, g: 0.6577157, b: 0.6577157, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: cd52ceeaf74bbec4e9c98809ba24ee98, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a530ffa698a44724fbb5b4a49e0a59e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myPirate: {fileID: 860142023}
+  _myPirate: {fileID: 0}
   _myCollider: {fileID: 220638617}
 --- !u!153 &220638616
 ConfigurableJoint:
@@ -871,7 +871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a530ffa698a44724fbb5b4a49e0a59e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myPirate: {fileID: 860142023}
+  _myPirate: {fileID: 0}
   _myCollider: {fileID: 667423853}
 --- !u!153 &667423852
 ConfigurableJoint:
@@ -1232,7 +1232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPlayerSword: 0
-  _myPirate: {fileID: 860142023}
+  _myPirate: {fileID: 0}
 --- !u!65 &747850030
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1445,6 +1445,7 @@ MonoBehaviour:
   speed: 10
   rotationSpeed: 60
   blendTreeDamping: 0.1
+  _movePower: 1
   rb: {fileID: 860142025}
   animator: {fileID: 1332694125}
 --- !u!114 &860142023
@@ -1464,6 +1465,7 @@ MonoBehaviour:
   _gracePeriodLength: 0.5
   _mover: {fileID: 860142022}
   _isDed: 0
+  _ai: {fileID: 0}
 --- !u!136 &860142024
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1608,7 +1610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a530ffa698a44724fbb5b4a49e0a59e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myPirate: {fileID: 860142023}
+  _myPirate: {fileID: 0}
   _myCollider: {fileID: 933160161}
 --- !u!153 &933160160
 ConfigurableJoint:
@@ -1808,7 +1810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a530ffa698a44724fbb5b4a49e0a59e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myPirate: {fileID: 860142023}
+  _myPirate: {fileID: 0}
   _myCollider: {fileID: 1270095491}
 --- !u!153 &1270095490
 ConfigurableJoint:
@@ -2526,7 +2528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a530ffa698a44724fbb5b4a49e0a59e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myPirate: {fileID: 860142023}
+  _myPirate: {fileID: 0}
   _myCollider: {fileID: 1432718039}
 --- !u!153 &1432718038
 ConfigurableJoint:
@@ -2915,7 +2917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a530ffa698a44724fbb5b4a49e0a59e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myPirate: {fileID: 860142023}
+  _myPirate: {fileID: 0}
   _myCollider: {fileID: 1527146725}
 --- !u!153 &1527146724
 ConfigurableJoint:
@@ -3089,7 +3091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a530ffa698a44724fbb5b4a49e0a59e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myPirate: {fileID: 860142023}
+  _myPirate: {fileID: 0}
   _myCollider: {fileID: 1561747872}
 --- !u!153 &1561747870
 ConfigurableJoint:
@@ -3316,7 +3318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a530ffa698a44724fbb5b4a49e0a59e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myPirate: {fileID: 860142023}
+  _myPirate: {fileID: 0}
   _myCollider: {fileID: 1668555806}
 --- !u!153 &1668555805
 ConfigurableJoint:
@@ -3702,7 +3704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a530ffa698a44724fbb5b4a49e0a59e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myPirate: {fileID: 860142023}
+  _myPirate: {fileID: 0}
   _myCollider: {fileID: 1720321445}
 --- !u!153 &1720321444
 ConfigurableJoint:
@@ -4465,7 +4467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a530ffa698a44724fbb5b4a49e0a59e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myPirate: {fileID: 860142023}
+  _myPirate: {fileID: 0}
   _myCollider: {fileID: 2085588227}
 --- !u!153 &2085588226
 ConfigurableJoint:
@@ -4877,7 +4879,7 @@ PrefabInstance:
     - target: {fileID: 8417223438145327406, guid: 191cd95600b243040825a9fa59bb3f94, type: 3}
       propertyPath: _myPirate
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 561590405}
     - target: {fileID: 8724775544678454095, guid: 191cd95600b243040825a9fa59bb3f94, type: 3}
       propertyPath: _myPirate
       value: 
@@ -4956,6 +4958,10 @@ PrefabInstance:
       value: CaptainFeathersword
       objectReference: {fileID: 0}
     - target: {fileID: 1757055322583470216, guid: 96c7443cb26fa224bb7de99c2a108cd9, type: 3}
+      propertyPath: _myPirate
+      value: 
+      objectReference: {fileID: 4126650159675518992}
+    - target: {fileID: 2221568481984748454, guid: 96c7443cb26fa224bb7de99c2a108cd9, type: 3}
       propertyPath: _myPirate
       value: 
       objectReference: {fileID: 4126650159675518992}
