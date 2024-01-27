@@ -4,6 +4,8 @@ namespace Scripts.Game.Pirates
 {
     /// <summary>
     /// The captain is here!
+    /// 
+    /// also the captain is a singleton.
     /// </summary>  
     public class CaptainFeathersword : Pirate
     {
@@ -13,7 +15,45 @@ namespace Scripts.Game.Pirates
         /// </summary>
         public override bool IsTheCaptain { get { return true; } }
 
-        
+        private static CaptainFeathersword _instance;
+
+        /// <summary>
+        /// attempts to obtain the instance (may be null!)
+        /// </summary>
+        public static CaptainFeathersword Instance { get { return _instance; } }
+
+        /// <summary>
+        /// try get version of the instance obtainer
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        public static bool TryGetInstance(out CaptainFeathersword instance)
+        {
+            instance = _instance;
+            return (null != instance);
+        }
+
+        protected override void Awake()
+        {
+            base.Awake();
+            if (_instance == null)
+            {
+                _instance = this;
+            } else
+            {
+                Destroy(this);
+            }
+        }
+
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            if (_instance == this)
+            {
+                _instance = null;
+            }
+        }
 
         // Update is called once per frame
         protected override void Update()

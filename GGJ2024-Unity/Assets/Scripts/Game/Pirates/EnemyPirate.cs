@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 
 namespace Scripts.Game.Pirates
 {
@@ -9,6 +10,11 @@ namespace Scripts.Game.Pirates
         /// the enemy is not the captain
         /// </summary>
         public override bool IsTheCaptain { get { return false; } }
+
+
+        public NavMeshAgent _pirateAgent;
+
+
 
         // Use this for initialization
         protected override void Start()

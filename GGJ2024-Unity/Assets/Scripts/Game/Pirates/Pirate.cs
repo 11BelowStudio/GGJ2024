@@ -65,6 +65,36 @@ namespace Scripts.Game.Pirates
             _mover = GetComponent<PirateMover>();
         }
 
+        protected virtual void OnDestroy()
+        {
+
+        }
+
+        protected virtual void FixedUpdate()
+        {
+
+        }
+
+        protected virtual void LateUpdate()
+        {
+
+        }
+
+        protected virtual void OnEnable()
+        {
+
+        }
+
+        protected virtual void OnValidate()
+        {
+
+        }
+
+        protected virtual void OnDisable()
+        {
+
+        }
+
 
         public virtual void HurtMe(float damageToDeal)
         {
