@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 926562662571187332, guid: 96c7443cb26fa224bb7de99c2a108cd9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 926562662571187332, guid: 96c7443cb26fa224bb7de99c2a108cd9, type: 3}
       propertyPath: m_LocalRotation.x
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 926562662571187332, guid: 96c7443cb26fa224bb7de99c2a108cd9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 926562662571187332, guid: 96c7443cb26fa224bb7de99c2a108cd9, type: 3}
       propertyPath: m_LocalRotation.z
@@ -42,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 926562662571187332, guid: 96c7443cb26fa224bb7de99c2a108cd9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 926562662571187332, guid: 96c7443cb26fa224bb7de99c2a108cd9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: 2221568481984748454, guid: 96c7443cb26fa224bb7de99c2a108cd9, type: 3}
       propertyPath: _myPirate
       value: 
-      objectReference: {fileID: 8805076200881884360}
+      objectReference: {fileID: 0}
     - target: {fileID: 2221568481984748454, guid: 96c7443cb26fa224bb7de99c2a108cd9, type: 3}
       propertyPath: _isPlayerSword
       value: 0
@@ -107,4 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _helf: 10
+  _maxHelf: 0
+  _gracePeriodLength: 0.5
   _mover: {fileID: 6900632893904174430}
+  _isDed: 0

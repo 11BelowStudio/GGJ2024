@@ -388,6 +388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myPirate: {fileID: 0}
+  _myCollider: {fileID: 8598253567573954062}
 --- !u!1 &1301003401651048350
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,6 +590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myPirate: {fileID: 0}
+  _myCollider: {fileID: 4430634831977184873}
 --- !u!1 &1417036250769342233
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +619,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417036250769342233}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -626,7 +628,7 @@ Transform:
   - {fileID: 3157154055676917740}
   - {fileID: 7482255376137900554}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &6723522426462937409
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -690,7 +692,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _helf: 100
+  _maxHelf: 0
+  _gracePeriodLength: 0.5
   _mover: {fileID: 3880024609546942422}
+  _isDed: 0
 --- !u!114 &3880024609546942422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1096,6 +1101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myPirate: {fileID: 0}
+  _myCollider: {fileID: 7686443879922674694}
 --- !u!1 &3163076087722598871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1576,6 +1582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myPirate: {fileID: 0}
+  _myCollider: {fileID: 2702712176913713085}
 --- !u!1 &4340317969697488380
 GameObject:
   m_ObjectHideFlags: 0
@@ -1774,6 +1781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myPirate: {fileID: 0}
+  _myCollider: {fileID: 7685413751051926626}
 --- !u!1 &4544295994377454947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1977,6 +1985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myPirate: {fileID: 0}
+  _myCollider: {fileID: 2098879455250078500}
 --- !u!1 &5237248548393059827
 GameObject:
   m_ObjectHideFlags: 0
@@ -2365,6 +2374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myPirate: {fileID: 0}
+  _myCollider: {fileID: 6137862730988025929}
 --- !u!1 &5784256067929527841
 GameObject:
   m_ObjectHideFlags: 0
@@ -2565,6 +2575,8 @@ GameObject:
   - component: {fileID: 3313926167722301846}
   - component: {fileID: 7223013659002086052}
   - component: {fileID: 2221568481984748454}
+  - component: {fileID: 877229349789972987}
+  - component: {fileID: 6393924107396657630}
   m_Layer: 0
   m_Name: The Sword
   m_TagString: Untagged
@@ -2671,7 +2683,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPlayerSword: 1
-  _myPirate: {fileID: 6483533854068943335}
+  _myPirate: {fileID: 0}
+--- !u!54 &877229349789972987
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6052787075108870686}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0.3
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!138 &6393924107396657630
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6052787075108870686}
+  m_ConnectedBody: {fileID: 7287977254194873778}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 0
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &6438716698205568166
 GameObject:
   m_ObjectHideFlags: 0
@@ -3020,6 +3074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myPirate: {fileID: 0}
+  _myCollider: {fileID: 3823853228059549841}
 --- !u!1 &6964810609330900012
 GameObject:
   m_ObjectHideFlags: 0
@@ -3594,6 +3649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myPirate: {fileID: 0}
+  _myCollider: {fileID: 7297049570271626041}
 --- !u!1 &7554450157124179559
 GameObject:
   m_ObjectHideFlags: 0
@@ -3795,6 +3851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myPirate: {fileID: 0}
+  _myCollider: {fileID: 4463829660621355098}
 --- !u!1 &7753104262861891750
 GameObject:
   m_ObjectHideFlags: 0

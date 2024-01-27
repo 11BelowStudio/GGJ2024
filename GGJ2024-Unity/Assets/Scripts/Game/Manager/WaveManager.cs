@@ -1,15 +1,13 @@
-﻿using Scripts.Game.Pirates;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace Scripts.Game.Manager
 {
-    public class GameManager : MonoBehaviour
+    public class WaveManager : MonoBehaviour
     {
 
         [SerializeField]
-        public CaptainFeathersword theCaptain;
-
+        private GameObject _enemyPiratePrefab;
 
         // Use this for initialization
         void Start()
@@ -21,12 +19,6 @@ namespace Scripts.Game.Manager
         void Update()
         {
 
-        }
-
-
-        public void OnCaptainFeatherswordDefeated()
-        {
-            // TODO: lose the game
         }
     }
 }
