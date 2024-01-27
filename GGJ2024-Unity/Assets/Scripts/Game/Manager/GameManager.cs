@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts.Game.Manager
+namespace Scripts.Game.Manager
 {
     public class GameManager : MonoBehaviour
     {

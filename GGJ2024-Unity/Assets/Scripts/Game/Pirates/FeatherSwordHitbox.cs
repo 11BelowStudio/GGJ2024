@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Game.Pirates
+namespace Scripts.Game.Pirates
 {
     /// <summary>
     /// hitbox for a feather sword

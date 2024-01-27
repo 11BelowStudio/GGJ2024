@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Game.Pirates
+namespace Scripts.Game.Pirates
 {
     /// <summary>
     /// Class that recieves movement inputs to get the pirate moving

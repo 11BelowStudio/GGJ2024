@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Game.Pirates
+namespace Scripts.Game.Pirates
 {
     /// <summary>
     /// generic class for piratey things

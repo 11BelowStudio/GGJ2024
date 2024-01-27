@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Game.Pirates
+namespace Scripts.Game.Pirates
 {
     /// <summary>
     /// The captain is here!
-    /// </summary>
+    /// </summary>  
     public class CaptainFeathersword : Pirate
     {
 
