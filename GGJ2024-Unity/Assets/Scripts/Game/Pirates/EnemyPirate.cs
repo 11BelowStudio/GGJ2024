@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AI;
 
 namespace Scripts.Game.Pirates
@@ -14,10 +15,28 @@ namespace Scripts.Game.Pirates
 
         [SerializeField] EnemyAgentAI _ai;
 
+        public EnemyAgentAI AI => _ai;
+
+        public Action<EnemyPirate> OnDedReference;
+
         protected override void OnValidate()
         {
             base.OnValidate();
             _ai = GetComponent<EnemyAgentAI>();
+        }
+
+        protected override void Awake()
+        {
+
+            OnDed += OnDedInvokeReference;
+            base.Awake();
+            _ai = GetComponent<EnemyAgentAI>();
+
+        }
+
+        private void OnDedInvokeReference()
+        {
+            OnDedReference?.Invoke(this);
         }
 
         // Use this for initialization

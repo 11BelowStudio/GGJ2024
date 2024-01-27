@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Scripts.Game.Pirates
 {
@@ -42,6 +43,9 @@ namespace Scripts.Game.Pirates
         /// is this pirate ded (from laughter)
         /// </summary>
         public bool IsDed => _isDed;
+
+
+        public Action OnDed;
 
         // Use this for initialization
         protected virtual void Start()
@@ -109,6 +113,7 @@ namespace Scripts.Game.Pirates
             if (_helf <= 0)
             {
                 _mover.DoDed(); // you are ded
+                OnDed?.Invoke();
                 _isDed = true;
             }
             else

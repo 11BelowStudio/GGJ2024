@@ -21,6 +21,12 @@ namespace Scripts.Game.Manager
         void Update()
         {
 
+
+            // escape button to quit
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
         }
 
 

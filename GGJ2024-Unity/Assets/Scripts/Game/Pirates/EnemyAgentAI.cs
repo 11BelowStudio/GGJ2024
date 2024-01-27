@@ -35,7 +35,7 @@ namespace Scripts.Game.Pirates
         private PirateMover _mover;
 
         [SerializeField]
-        private Rigidbody _rb;
+        private EnemyPirate _pirate;
         
         
 
@@ -68,9 +68,16 @@ namespace Scripts.Game.Pirates
 
         [SerializeField] private NavMeshPath _destinationPath;
 
+
+        private bool _isDead;
+
         private void Awake()
         {
             _destinationPath = new NavMeshPath();
+
+
+            _pirate.OnDed += OnPirateKilled;
+
 
             SetAIParams(
                 RandomMoveBehaviour,
@@ -80,19 +87,27 @@ namespace Scripts.Game.Pirates
                 (UnityEngine.Random.value),
                 (UnityEngine.Random.value),
                 (UnityEngine.Random.value)
-                );
+            );
 
         }
+
+        /// <summary>
+        /// Lobotomize the AI upon pirate death
+        /// </summary>
+        void OnPirateKilled()
+        {
+            this.enabled = false;
+            
+        }
+
 
         private void OnValidate()
         {
             _mover = GetComponent<PirateMover>();
-            //_agent = GetComponent<NavMeshAgent>();
-            _rb = GetComponent<Rigidbody>();
-
+            _pirate = GetComponent<EnemyPirate>();
         }
 
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawLine(transform.position + Vector3.up, destination + Vector3.up);

@@ -22,6 +22,12 @@ namespace Scripts.Game.Pirates
             _myCollider = GetComponent<Collider>();
         }
 
+        private void Awake()
+        {
+            _myPirate = GetComponentInParent<Pirate>();
+            _myCollider = GetComponent<Collider>();
+        }
+
         // Use this for initialization
         void Start()
         {
