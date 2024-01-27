@@ -12,9 +12,13 @@ namespace Scripts.Game.Pirates
         public override bool IsTheCaptain { get { return false; } }
 
 
-        public NavMeshAgent _pirateAgent;
+        [SerializeField] EnemyAgentAI _ai;
 
-
+        protected override void OnValidate()
+        {
+            base.OnValidate();
+            _ai = GetComponent<EnemyAgentAI>();
+        }
 
         // Use this for initialization
         protected override void Start()

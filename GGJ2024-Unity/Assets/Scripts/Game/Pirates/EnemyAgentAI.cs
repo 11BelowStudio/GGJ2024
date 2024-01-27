@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using Scripts.Utils.Annotations;
+using UnityEngine.AI;
 
 namespace Scripts.Game.Pirates
 {
@@ -24,37 +25,80 @@ namespace Scripts.Game.Pirates
 
         private const float _minFleeDist = 10f;
         private const float _maxFleeDist = 20f;
+
+
+        private const float _minRandomChangeTime = 2f;
+        private const float _maxRandomChangeTime = 15f;
         
         
         [SerializeField]
         private PirateMover _mover;
 
+        [SerializeField]
+        private Rigidbody _rb;
+        
+        
+
         [Tooltip("parameters for this bot's logic")]
-        [ReadOnly] private EnemyAgentMoveBehaviours _moveBehaviour;
+        [ReadOnly][SerializeField] private EnemyAgentMoveBehaviours _moveBehaviour;
 
-        [ReadOnly] private bool _randomMove;
+        [ReadOnly][SerializeField] private bool _randomMove;
 
-        [ReadOnly] private EnemyAgentAttackBehaviours _attackBehaviour;
+        [ReadOnly][SerializeField] private EnemyAgentAttackBehaviours _attackBehaviour;
 
-        [ReadOnly] private float _moveSpeed;
+        [ReadOnly][SerializeField] private float _moveSpeed;
 
-        [ReadOnly] private float _attackTimeMod;
+        [ReadOnly][SerializeField] private float _attackTimeMod;
 
-        [ReadOnly] private float _attackChance;
+        [ReadOnly][SerializeField] private float _attackChance;
 
-        [ReadOnly] private float _distanceMod;
+        [ReadOnly][SerializeField] private float _distanceMod;
 
-        [ReadOnly] private float _distanceTarget;
-
-        [Tooltip("non-constant AI internal logic")]
-        [ReadOnly] private float _attackTimer;
-
+        [ReadOnly][SerializeField] private float _distanceTarget;
+        [ReadOnly][SerializeField] private float _sqrDistanceTarget;
 
         
+
+        [Tooltip("non-constant AI internal logic")]
+        [ReadOnly][SerializeField] private float _attackTimer;
+        [ReadOnly][SerializeField] private float _randomChangeTimer;
+
+        [ReadOnly][SerializeField] private Vector3 destination;
+        [ReadOnly][SerializeField] private Vector3 nextCorner;
+
+        [SerializeField] private NavMeshPath _destinationPath;
+
+        private void Awake()
+        {
+            _destinationPath = new NavMeshPath();
+
+            SetAIParams(
+                RandomMoveBehaviour,
+                true, //(UnityEngine.Random.value < 0.5),
+                RandomAttackBehaviour,
+                (UnityEngine.Random.value),
+                (UnityEngine.Random.value),
+                (UnityEngine.Random.value),
+                (UnityEngine.Random.value)
+                );
+
+        }
 
         private void OnValidate()
         {
             _mover = GetComponent<PirateMover>();
+            //_agent = GetComponent<NavMeshAgent>();
+            _rb = GetComponent<Rigidbody>();
+
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(transform.position + Vector3.up, destination + Vector3.up);
+
+            Gizmos.DrawLine(transform.position + Vector3.up, nextCorner + Vector3.up);
+            Gizmos.DrawCube(nextCorner + Vector3.up, Vector3.one);
         }
 
 
@@ -78,6 +122,38 @@ namespace Scripts.Game.Pirates
 
 
             CalculateDistanceTarget();
+            destination = Vector3.zero;
+
+            if (NavMesh.CalculatePath(
+                transform.position, destination,
+                NavMesh.GetAreaFromName("walkable"),
+                _destinationPath
+            ))
+            {
+                nextCorner = _destinationPath.corners[0];
+                foreach(Vector3 corner in _destinationPath.corners)
+                {
+                    if (Vector3.Distance(transform.position, corner) > 3f)
+                    {
+                        nextCorner = corner;
+                        break;
+                    }
+                }
+                
+            } else
+            {
+                nextCorner = destination;
+            }
+
+            
+            _mover.GiveDestination(nextCorner);
+
+        }
+
+
+        private void FixedUpdate()
+        {
+            
         }
 
 
@@ -95,17 +171,194 @@ namespace Scripts.Game.Pirates
                     _distanceTarget = _minFleeDist + ((_maxFleeDist - _minFleeDist) * (1 - _distanceMod));
                     break;
             }
+            _sqrDistanceTarget = (_distanceTarget * _distanceTarget);
         }
 
         private void Update()
         {
             // step 1: work out where we're going
-            Vector3 target = Vector3.zero;
+            Vector3 featherswordTarget = Vector3.zero;
 
             if (CaptainFeathersword.TryGetInstance( out var feathersword))
             {
-                target = feathersword.transform.position;
+                featherswordTarget = feathersword.transform.position;
             }
+
+            
+            
+            Vector3 fromDestinationToPos = featherswordTarget - transform.position;
+
+
+            float destToPosMag = Vector3.Distance(featherswordTarget, transform.position);
+
+            Vector3 destToPosNorm = fromDestinationToPos / destToPosMag;
+
+            destination = featherswordTarget + (destToPosNorm * _distanceTarget);
+
+
+            //Vector3 fromNextCornerToPos = transform.position - nextCorner;
+
+            if ( 
+                // if fleeing and we've fleed far enough
+                ((_moveBehaviour == EnemyAgentMoveBehaviours.FLEER) && (destToPosMag >= _distanceTarget))
+                || // or
+                // if not fleeing and we're close enough
+                ((_moveBehaviour != EnemyAgentMoveBehaviours.FLEER) && (destToPosMag <= _distanceTarget))
+            )
+            {
+                // we have reached the destination
+                _mover.GiveLookTarget(featherswordTarget);
+
+                // if we're doing random movement, we pick a new move behaviour
+                if (_randomMove)
+                {
+
+                    
+
+                    if (_randomChangeTimer > 0f)
+                    {
+                        _randomChangeTimer -= Time.deltaTime;
+                    } else
+                    {
+
+                        _randomChangeTimer = UnityEngine.Random.Range(_minRandomChangeTime, _maxRandomChangeTime);
+
+                        _moveBehaviour = RandomMoveBehaviour;
+                        CalculateDistanceTarget();
+
+                        destination = featherswordTarget + (destToPosNorm * _distanceTarget);
+
+                        if (NavMesh.CalculatePath(
+                            transform.position, destination,
+                            NavMesh.GetAreaFromName("walkable"),
+                            _destinationPath
+                        ))
+                        {
+                            nextCorner = _destinationPath.corners[0];
+                            foreach (Vector3 corner in _destinationPath.corners)
+                            {
+                                if (Vector3.Distance(transform.position, corner) > 3f)
+                                {
+                                    nextCorner = corner;
+                                    break;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            nextCorner = destination;
+                        }
+
+                        _mover.GiveDestination(nextCorner);
+                    }
+                    
+                    
+                }
+            }
+            else
+            {
+                // we haven't reached our destination
+
+
+                if (NavMesh.CalculatePath(
+                        transform.position, destination,
+                        NavMesh.GetAreaFromName("walkable"),
+                        _destinationPath
+                    ))
+                {
+                    nextCorner = _destinationPath.corners[0];
+                    foreach (Vector3 corner in _destinationPath.corners)
+                    {
+                        if (Vector3.Distance(transform.position, corner) > 3f)
+                        {
+                            nextCorner = corner;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    nextCorner = destination;
+                }
+
+                _mover.GiveDestination(nextCorner);
+
+            }
+
+            
+            if (_attackTimer > 0)
+            {
+                _attackTimer -= Time.deltaTime;
+            }
+            else
+            {
+                _attackTimer = _attackTimeMod;
+
+                if (UnityEngine.Random.value < _attackChance)
+                {
+                    switch (_attackBehaviour)
+                    {
+                        case EnemyAgentAttackBehaviours.PASSIVE:
+                            break;
+                        case EnemyAgentAttackBehaviours.T_POSER:
+                            _mover.DoTPose();
+                            break;
+                        case EnemyAgentAttackBehaviours.ATTACK_1:
+                            _mover.DoAttack1();
+                            break;
+                        case EnemyAgentAttackBehaviours.ATTACK_2:
+                            _mover.DoAttack2();
+                            break;
+                        case EnemyAgentAttackBehaviours.ATTACK_1_2:
+                            if (UnityEngine.Random.value < 0.5)
+                            {
+                                _mover.DoAttack1();
+                            }
+                            else
+                            {
+                                _mover.DoAttack2();
+                            }
+                            break;
+                        case EnemyAgentAttackBehaviours.ATTACK_1_T:
+                            if (UnityEngine.Random.value < 0.5)
+                            {
+                                _mover.DoAttack1();
+                            }
+                            else
+                            {
+                                _mover.DoTPose();
+                            }
+                            break;
+                        case EnemyAgentAttackBehaviours.ATTACK_2_T:
+                            if (UnityEngine.Random.value < 0.5)
+                            {
+                                _mover.DoAttack2();
+                            }
+                            else
+                            {
+                                _mover.DoTPose();
+                            }
+                            break;
+                        case EnemyAgentAttackBehaviours.ATTACK_1_2_T:
+                            float ayylmao = UnityEngine.Random.Range(0, 3);
+                            if (ayylmao == 0)
+                            {
+                                _mover.DoAttack1();
+                            }
+                            else if (ayylmao == 1)
+                            {
+                                _mover.DoAttack2();
+                            }
+                            else
+                            {
+                                _mover.DoTPose();
+                            }
+                            break;
+                    }
+                }
+
+            }
+            
         }
 
         public static EnemyAgentMoveBehaviours RandomMoveBehaviour
@@ -123,11 +376,6 @@ namespace Scripts.Game.Pirates
                 var behaviours = Enum.GetValues(typeof(EnemyAgentAttackBehaviours)) as EnemyAgentAttackBehaviours[];
                 return behaviours[UnityEngine.Random.Range(0, behaviours.Length)];
             }
-        }
-
-        private void Awake()
-        {
-            
         }
 
 

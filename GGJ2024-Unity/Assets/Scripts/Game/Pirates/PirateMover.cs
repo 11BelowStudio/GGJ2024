@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Scripts.Utils.Annotations;
+using Scripts.Utils.Extensions.Vectors;
+using UnityEngine;
 
 namespace Scripts.Game.Pirates
 {
@@ -12,8 +14,12 @@ namespace Scripts.Game.Pirates
         public float rotationSpeed = 60;
         public float blendTreeDamping = 0.1f;
 
+        public float _movePower = 1f;
+
         [System.NonSerialized] public float verticalInput;
         [System.NonSerialized] public float horizontalInput;
+
+        [System.NonSerialized] public Vector3 _destination;
 
 
         // these are all the names of the parameters in the animator
@@ -27,6 +33,16 @@ namespace Scripts.Game.Pirates
         [SerializeField] Rigidbody rb;
         [SerializeField] Animator animator;
 
+        /// <summary>
+        /// if true, we're using x/y inputs like player inputs
+        /// if false, we're using a desired destination to work shit out
+        /// </summary>
+        [ReadOnly] private bool use_inputs = true;
+
+        [ReadOnly] private bool move_to_dest = true;
+
+        private bool is_ded = false;
+
 
         /// <summary>
         /// because the moving uses physics stuff, it looks like this needs to be done in fixedupdate
@@ -34,14 +50,93 @@ namespace Scripts.Game.Pirates
         private void FixedUpdate()
         {
             Vector3 currentVelocity = rb.velocity;
-            Vector3 velocity = verticalInput * new Vector3(0, 0, speed);
-            velocity.y = currentVelocity.y;
-            rb.velocity = rb.rotation * velocity;
+            
+            if (is_ded)
+            {
 
-            Quaternion deltaRotation = Quaternion.Euler(0, horizontalInput * rotationSpeed * Time.deltaTime, 0);
-            rb.MoveRotation(deltaRotation * rb.rotation);
+                rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                rb.rotation = rb.rotation;
+                return;
+            }
+            
+            if (use_inputs) {
+                Vector3 velocity = verticalInput * new Vector3(0, 0, speed);
+                velocity.y = currentVelocity.y;
+                rb.velocity = rb.rotation * velocity;
 
-            animator?.SetFloat(RUNNING, verticalInput, blendTreeDamping, Time.deltaTime);
+
+                Quaternion deltaRotation = Quaternion.Euler(0, horizontalInput * rotationSpeed * Time.deltaTime, 0);
+                rb.MoveRotation(deltaRotation * rb.rotation);
+
+                animator?.SetFloat(RUNNING, verticalInput, blendTreeDamping, Time.deltaTime);
+            }
+            else
+            {
+                Vector3 posToDestination = (_destination - rb.position).GetFlattened(); // we only care about XZ
+
+
+
+                float tempVerticalInput = Mathf.Min((speed * _movePower), posToDestination.magnitude);
+
+                Vector3 velocity = new Vector3(0, 0, tempVerticalInput * _movePower);
+
+                if (move_to_dest)
+                {
+
+                    velocity.y = currentVelocity.y;
+
+                    rb.velocity = rb.rotation * velocity;
+                    
+                    
+                    Vector3 myForward = transform.forward;
+
+                    Quaternion forwardToDest = Quaternion.RotateTowards(
+                        Quaternion.Euler(myForward), Quaternion.Euler((posToDestination.normalized)), (rotationSpeed * Time.fixedDeltaTime));
+
+                    //Vector3 eulerRot = forwardToDest.eulerAngles;
+                    //eulerRot.x = 0;
+                    //eulerRot.z = 0;
+                    //forwardToDest.eulerAngles = eulerRot;
+
+                    /*
+                    rb.MoveRotation(
+                        //Quaternion.FromToRotation(rb.rotation.eulerAngles, posToDestination.normalized)
+                        //Quaternion.Lerp(rb.rotation, Quaternion.Euler(posToDestination.normalized), 0.5f)
+                        //Quaternion.LookRotation(posToDestination.normalized)
+                        );
+                    */
+
+                    //rb.rotation.SetLookRotation(_destination)
+
+                    rb.MoveRotation(Quaternion.LookRotation(_destination - transform.position));
+
+                    //rb.MoveRotation(forwardToDest);
+
+                    //rb.MoveRotation(Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(posToDestination.normalized), Time.fixedDeltaTime));
+
+
+                } else
+                {
+                    velocity = currentVelocity.MultXYZ(0, 1, 0);
+                    rb.velocity = velocity;
+
+                    rb.MoveRotation(
+                        Quaternion.LookRotation(
+                            (_destination - rb.position)));
+                }
+
+                
+                animator?.SetFloat(RUNNING, Mathf.Min(_movePower, velocity.z), blendTreeDamping, Time.deltaTime);
+                
+                
+
+            }
+            
+        }
+
+        public void GiveMovePower(float movePower)
+        {
+            _movePower = movePower;
         }
 
         /// <summary>
@@ -53,6 +148,21 @@ namespace Scripts.Game.Pirates
         {
             horizontalInput = horizontal;
             verticalInput = vertical;
+            use_inputs = true;
+        }
+
+        public void GiveDestination(Vector3 destination)
+        {
+            _destination = destination;
+            move_to_dest = true;
+            use_inputs = false;
+        }
+
+        public void GiveLookTarget(Vector3 lookTarget)
+        {
+            _destination = lookTarget;
+            use_inputs = false;
+            move_to_dest = false;
         }
 
         /// <summary>
@@ -63,6 +173,7 @@ namespace Scripts.Game.Pirates
         {
             horizontalInput = xy.x;
             verticalInput = xy.y;
+            use_inputs = true;
         }
 
         /// <summary>
@@ -70,6 +181,7 @@ namespace Scripts.Game.Pirates
         /// </summary>
         public void DoAttack1()
         {
+            if (is_ded) { return; }
             animator.SetTrigger(ATTACK_1);
         }
 
@@ -78,6 +190,7 @@ namespace Scripts.Game.Pirates
         /// </summary>
         public void DoAttack2()
         {
+            if (is_ded) { return; }
             animator.SetTrigger(ATTACK_2);
         }
 
@@ -86,6 +199,7 @@ namespace Scripts.Game.Pirates
         /// </summary>
         public void DoTPose()
         {
+            if (is_ded) { return;  }
             animator.SetTrigger(T_POSE);
         }
 
@@ -95,6 +209,8 @@ namespace Scripts.Game.Pirates
         public void DoDed()
         {
             animator.SetTrigger(DED);
+            rb.velocity = Vector3.zero;
+            is_ded = true;
         }
 
         /// <summary>
@@ -103,6 +219,7 @@ namespace Scripts.Game.Pirates
         public void DoNotDed()
         {
             animator.SetTrigger(NOT_DED);
+            is_ded = false;
         }
 
         private void Awake()
