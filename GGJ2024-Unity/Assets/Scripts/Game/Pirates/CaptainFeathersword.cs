@@ -1,9 +1,10 @@
-﻿using Hairibar.Ragdoll.Demo;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.Game
+namespace Scripts.Game.Pirates
 {
+    /// <summary>
+    /// The captain is here!
+    /// </summary>
     public class CaptainFeathersword : Pirate
     {
 

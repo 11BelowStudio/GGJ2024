@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.Game
+namespace Scripts.Game.Pirates
 {
     public class EnemyPirate : Pirate
     {
@@ -12,15 +11,15 @@ namespace Assets.Scripts.Game
         public override bool IsTheCaptain { get { return false; } }
 
         // Use this for initialization
-        void Start()
+        protected override void Start()
         {
-
+            base.Start();
         }
 
         // Update is called once per frame
-        void Update()
+        protected override void Update()
         {
-
+            base.Update();
         }
     }
 }

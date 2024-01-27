@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.Game
+namespace Scripts.Game.Pirates
 {
     /// <summary>
     /// Class that recieves movement inputs to get the pirate moving

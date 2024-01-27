@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.Game
+namespace Scripts.Game.Pirates
 {
     /// <summary>
     /// hitbox for a feather sword
