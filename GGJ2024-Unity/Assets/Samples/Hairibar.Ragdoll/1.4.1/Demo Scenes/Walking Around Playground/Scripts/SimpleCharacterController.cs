@@ -30,6 +30,30 @@ namespace Hairibar.Ragdoll.Demo
             animator?.SetFloat("Running", verticalInput, blendTreeDamping, Time.deltaTime);
         }
 
+        private void Update()
+        {
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                animator?.SetTrigger("attack_1");
+            }
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                animator?.SetTrigger("attack_2");
+            }
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                animator?.SetTrigger("ded");
+            }
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                animator?.SetTrigger("not_ded");
+            }
+            if (UnityEngine.Input.GetKeyDown(KeyCode.T))
+            {
+                animator?.SetTrigger("t_pose");
+            }
+        }
+
 
 
 

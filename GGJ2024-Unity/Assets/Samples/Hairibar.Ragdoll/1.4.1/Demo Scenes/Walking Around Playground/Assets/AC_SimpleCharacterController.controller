@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1102 &-7583180122849892934
 AnimatorState:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -29,7 +29,7 @@ AnimatorState:
   m_TimeParameter: 
 --- !u!1107 &-7340606589948243925
 AnimatorStateMachine:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,7 +95,7 @@ AnimatorStateTransition:
   m_CanTransitionToSelf: 1
 --- !u!1102 &-1058593783189070342
 AnimatorState:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -114,8 +114,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 314d8f6a639a5d848999a71b510aa08a,
-    type: 3}
+  m_Motion: {fileID: -203655887218126122, guid: 314d8f6a639a5d848999a71b510aa08a, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -193,8 +192,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 55a74837bc5c62f45b933cc87f29f526,
-      type: 3}
+    m_Motion: {fileID: -203655887218126122, guid: 55a74837bc5c62f45b933cc87f29f526, type: 3}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: -1
@@ -202,8 +200,7 @@ BlendTree:
     m_DirectBlendParameter: Running
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 4833262affd20d14abc8473972f30f6f,
-      type: 3}
+    m_Motion: {fileID: -203655887218126122, guid: 4833262affd20d14abc8473972f30f6f, type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -211,8 +208,7 @@ BlendTree:
     m_DirectBlendParameter: Running
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 55a74837bc5c62f45b933cc87f29f526,
-      type: 3}
+    m_Motion: {fileID: -203655887218126122, guid: 55a74837bc5c62f45b933cc87f29f526, type: 3}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
