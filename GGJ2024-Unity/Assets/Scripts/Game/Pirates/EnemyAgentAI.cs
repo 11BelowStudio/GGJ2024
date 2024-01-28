@@ -27,8 +27,8 @@ namespace Scripts.Game.Pirates
         private const float _maxFleeDist = 20f;
 
 
-        private const float _minRandomChangeTime = 2f;
-        private const float _maxRandomChangeTime = 15f;
+        private const float _minRandomChangeTime = 0.01f;
+        private const float _maxRandomChangeTime = 5f;
         
         
         [SerializeField]
@@ -53,6 +53,8 @@ namespace Scripts.Game.Pirates
         [ReadOnly][SerializeField] private float _attackChance;
 
         [ReadOnly][SerializeField] private float _distanceMod;
+
+        [ReadOnly][SerializeField] private float _randomChangeDelay;
 
         [ReadOnly][SerializeField] private float _distanceTarget;
         [ReadOnly][SerializeField] private float _sqrDistanceTarget;
@@ -83,6 +85,7 @@ namespace Scripts.Game.Pirates
                 RandomMoveBehaviour,
                 true, //(UnityEngine.Random.value < 0.5),
                 RandomAttackBehaviour,
+                (UnityEngine.Random.value),
                 (UnityEngine.Random.value),
                 (UnityEngine.Random.value),
                 (UnityEngine.Random.value),
@@ -124,7 +127,8 @@ namespace Scripts.Game.Pirates
             float moveSpeedMod = 0.5f,
             float attackMod = 0.5f,
             float attackChance = 0.5f,
-            float distanceMod = 0.5f
+            float distanceMod = 0.5f,
+            float randomTimeMod = 0.5f
         )
         {
             _moveBehaviour = moveType;
@@ -134,7 +138,7 @@ namespace Scripts.Game.Pirates
             _attackTimeMod = _minAttackAttemptDelay + ((_maxAttackAttemptDelay - _minAttackAttemptDelay) * (1 - attackMod));
             _attackChance = attackChance;
             _distanceMod = distanceMod;
-
+            _randomChangeDelay = _minRandomChangeTime + ((_maxRandomChangeTime - _minRandomChangeTime) * (1 - randomTimeMod));
 
             CalculateDistanceTarget();
             destination = Vector3.zero;

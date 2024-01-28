@@ -692,7 +692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _helf: 100
-  _maxHelf: 0
+  _maxHelf: 100
   _gracePeriodLength: 0.5
   _mover: {fileID: 3880024609546942422}
   _isDed: 0
@@ -3866,6 +3866,7 @@ GameObject:
   - component: {fileID: 9173884601992027684}
   - component: {fileID: 8876592221433728557}
   - component: {fileID: 2366642857658868514}
+  - component: {fileID: 5696229148134357214}
   m_Layer: 9
   m_Name: mixamorig:RightFoot
   m_TagString: Untagged
@@ -4038,6 +4039,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.10081211, y: 0.07964111, z: 0.2584178}
   m_Center: {x: 0.005629957, y: -0.04815149, z: 0.06898439}
+--- !u!114 &5696229148134357214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7753104262861891750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a530ffa698a44724fbb5b4a49e0a59e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myPirate: {fileID: 0}
+  _myCollider: {fileID: 2366642857658868514}
 --- !u!1 &8270564735009163190
 GameObject:
   m_ObjectHideFlags: 0
@@ -4237,6 +4252,7 @@ GameObject:
   - component: {fileID: 6000490613858980197}
   - component: {fileID: 2548318735540903088}
   - component: {fileID: 1005844547257284843}
+  - component: {fileID: 3320714507238862812}
   m_Layer: 9
   m_Name: mixamorig:LeftFoot
   m_TagString: Untagged
@@ -4409,6 +4425,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.10081211, y: 0.07964111, z: 0.2584178}
   m_Center: {x: -0.0056299567, y: -0.04815149, z: 0.06898439}
+--- !u!114 &3320714507238862812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9008374363561079874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a530ffa698a44724fbb5b4a49e0a59e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myPirate: {fileID: 0}
+  _myCollider: {fileID: 1005844547257284843}
 --- !u!1001 &2498648221630167312
 PrefabInstance:
   m_ObjectHideFlags: 0

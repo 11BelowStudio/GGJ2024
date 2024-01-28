@@ -114,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3880024609546942422, guid: 96c7443cb26fa224bb7de99c2a108cd9, type: 3}
       propertyPath: speed
-      value: 7.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4701340960924063554, guid: 96c7443cb26fa224bb7de99c2a108cd9, type: 3}
       propertyPath: _myPirate

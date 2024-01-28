@@ -47,13 +47,69 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyPiratePrefab: {fileID: 8768849508544820625, guid: 191cd95600b243040825a9fa59bb3f94, type: 3}
   _minPirates: 3
-  _maxPirates: 25
+  _maxPirates: 50
   enemies: []
   _enemiesLeft: 0
-  _spawnpoints: []
-  waveCount: 0
+  _spawnpoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _waveCount: 0
   _currentMinAggro: 0.05
   _currentMaxAggro: 0.25
+  _currentMinSpeed: 0.05
+  _currentMaxSpeed: 0.25
 --- !u!114 &5463601773105849838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,3 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theCaptain: {fileID: 0}
+  _waveManager: {fileID: 0}
+  _gameHUD: {fileID: 0}
+  _gameOverHUD: {fileID: 0}
+  _gameState: 0

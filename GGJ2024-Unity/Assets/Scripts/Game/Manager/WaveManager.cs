@@ -5,10 +5,11 @@ using Scripts.Utils.Annotations;
 using UnityEngine;
 using System;
 using Scripts.Utils;
+using Scripts.Utils.Types;
 
 namespace Scripts.Game.Manager
 {
-    public class WaveManager : MonoBehaviour
+    public class WaveManager : Singleton<WaveManager>
     {
 
         [SerializeField]
@@ -17,7 +18,7 @@ namespace Scripts.Game.Manager
 
         [SerializeField] private int _minPirates = 3;
 
-        [SerializeField] private int _maxPirates = 25;
+        [SerializeField] private int _maxPirates;
 
         [SerializeField][ReadOnly] private List<EnemyPirate> enemies;
 
@@ -27,23 +28,29 @@ namespace Scripts.Game.Manager
 
         [SerializeField][ReadOnly] private List<Spawnpoint> _spawnpoints;
 
-        [SerializeField][ReadOnly] private int waveCount = 1;
+        [SerializeField][ReadOnly] private int _waveCount = 0;
 
+        public int WavesSurvived => _waveCount - 1;
 
-        private const float _minAggro = 0.05f;
-        [SerializeField][ReadOnly] private float _currentMinAggro = _minAggro;
+        private const float _initialMinAggro = 0.05f;
+        [SerializeField][ReadOnly] private float _currentMinAggro = _initialMinAggro;
         private const float _minAggroIncreasePerWave = 0.0375f;
 
         private const float _initialMaxAggro = 0.25f;
         [SerializeField][ReadOnly] private float _currentMaxAggro = _initialMaxAggro;
         private const float _maxAggroIncreasePerWave = 0.05f;
 
-        
+        [SerializeField][ReadOnly] private float _currentMinSpeed = _initialMinAggro;
+        [SerializeField][ReadOnly] private float _currentMaxSpeed = _initialMaxAggro;
+
 
         /// <summary>
         /// invoked upon completing a wave (next wave number int invoked)
         /// </summary>
         public Action<int> OnWaveClear;
+
+
+        private Coroutine _betweenWavesCoroutine;
 
 
         public void OnEnemyDed(EnemyPirate IAmDed)
@@ -65,10 +72,28 @@ namespace Scripts.Game.Manager
         public void WaveComplete()
         {
 
-            Debug.Log($"Survived wave {waveCount}!");
-            waveCount++;
+            Debug.Log($"Survived wave {_waveCount}!");
+            _waveCount++;
 
 
+            
+
+            OnWaveClear?.Invoke(_waveCount);
+
+            
+
+            _currentMaxAggro = Mathf.Clamp(_currentMaxAggro + _maxAggroIncreasePerWave, 0f, 1f);
+            _currentMinAggro = Mathf.Clamp(_currentMinAggro + _minAggroIncreasePerWave, 0f, 1f);
+
+            _currentMaxSpeed = Mathf.Clamp(_currentMaxSpeed + _maxAggroIncreasePerWave, 0f, 2f);
+            _currentMinSpeed = Mathf.Clamp(_currentMinSpeed + _minAggroIncreasePerWave, 0f, 2f);
+
+            _betweenWavesCoroutine = StartCoroutine(StartWaveCoroutine());
+        }
+
+        private IEnumerator StartWaveCoroutine()
+        {
+            yield return new WaitForSeconds(5f);
             foreach (var enemy in enemies)
             {
                 Destroy(enemy.gameObject);
@@ -76,21 +101,9 @@ namespace Scripts.Game.Manager
             deadEnemies.Clear();
             enemies.Clear();
 
-            OnWaveClear?.Invoke(waveCount);
+            yield return new WaitForEndOfFrame();
 
-            
-
-            _currentMaxAggro = Mathf.Clamp(_currentMaxAggro + _maxAggroIncreasePerWave, 0f, 1f);
-            _currentMinAggro = Mathf.Clamp(_currentMinAggro + _minAggroIncreasePerWave, 0f, 1f);
-
-            NewWave();
-        }
-
-
-        public void NewWave()
-        {
-
-            int enemiesThisWave = Mathf.Max(Mathf.Min(_maxPirates, _spawnpoints.Count, waveCount), _minPirates);
+            int enemiesThisWave = Mathf.Max(Mathf.Min(_maxPirates, _spawnpoints.Count, _waveCount), _minPirates);
 
             _enemiesLeft = enemiesThisWave;
 
@@ -111,18 +124,25 @@ namespace Scripts.Game.Manager
                     EnemyAgentAI.RandomMoveBehaviour,
                     true,
                     EnemyAgentAI.RandomAttackBehaviour,
+                    UnityEngine.Random.Range(_currentMinSpeed, _currentMaxSpeed),
                     UnityEngine.Random.Range(_currentMinAggro, _currentMaxAggro),
                     UnityEngine.Random.Range(_currentMinAggro, _currentMaxAggro),
                     UnityEngine.Random.Range(_currentMinAggro, _currentMaxAggro),
                     UnityEngine.Random.Range(_currentMinAggro, _currentMaxAggro)
                 );
+                yield return new WaitForSeconds(UnityEngine.Random.Range(0.01f, 0.2f));
             }
 
+            _betweenWavesCoroutine = null;
+
+            yield break;
         }
+
+        
 
         private void OnValidate()
         {
-            
+            _spawnpoints = new List<Spawnpoint>(FindObjectsOfType<Spawnpoint>());
         }
 
         private void Awake()
@@ -134,7 +154,7 @@ namespace Scripts.Game.Manager
         // Use this for initialization
         void Start()
         {
-            NewWave();
+            //NewWave();
         }
 
         // Update is called once per frame

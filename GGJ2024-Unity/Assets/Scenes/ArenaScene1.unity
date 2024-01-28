@@ -217,6 +217,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &246556072 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3735636586304755671, guid: f179a0ae016a288459e814cc51348e3f, type: 3}
+  m_PrefabInstance: {fileID: 7549694048539801856}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aec9b12b7b122b43b239d7c61f0e660, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1157541319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -465,11 +476,19 @@ PrefabInstance:
       propertyPath: _myPirate
       value: 
       objectReference: {fileID: 1328221753}
+    - target: {fileID: 3320714507238862812, guid: 96c7443cb26fa224bb7de99c2a108cd9, type: 3}
+      propertyPath: _myPirate
+      value: 
+      objectReference: {fileID: 1328221753}
     - target: {fileID: 4701340960924063554, guid: 96c7443cb26fa224bb7de99c2a108cd9, type: 3}
       propertyPath: _myPirate
       value: 
       objectReference: {fileID: 1328221753}
     - target: {fileID: 5478244132214567599, guid: 96c7443cb26fa224bb7de99c2a108cd9, type: 3}
+      propertyPath: _myPirate
+      value: 
+      objectReference: {fileID: 1328221753}
+    - target: {fileID: 5696229148134357214, guid: 96c7443cb26fa224bb7de99c2a108cd9, type: 3}
       propertyPath: _myPirate
       value: 
       objectReference: {fileID: 1328221753}
@@ -571,6 +590,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3735636586304755671, guid: f179a0ae016a288459e814cc51348e3f, type: 3}
+      propertyPath: _spawnpoints.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4054757172374981211, guid: f179a0ae016a288459e814cc51348e3f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -619,6 +642,10 @@ PrefabInstance:
       propertyPath: theCaptain
       value: 
       objectReference: {fileID: 1328221753}
+    - target: {fileID: 5463601773105849838, guid: f179a0ae016a288459e814cc51348e3f, type: 3}
+      propertyPath: _waveManager
+      value: 
+      objectReference: {fileID: 246556072}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

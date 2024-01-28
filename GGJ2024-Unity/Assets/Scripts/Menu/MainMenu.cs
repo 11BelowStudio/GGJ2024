@@ -12,6 +12,8 @@ namespace Scripts.Menu
         [SerializeField] private CanvasGroup entireCanvasGroupForTheWholeMenu;
         
         [SerializeField] private CanvasGroup mainMenuCanvasGroup;
+
+        [SerializeField] private InGameHUD theHUD;
         
         [SerializeField] private CreditsInfo theCredits;
 
@@ -76,6 +78,9 @@ namespace Scripts.Menu
             entireCanvasGroupForTheWholeMenu.alpha = 0f;
             entireCanvasGroupForTheWholeMenu.interactable = false;
             entireCanvasGroupForTheWholeMenu.gameObject.SetActive(false);
+
+            theHUD.gameObject.SetActive(true);
+
             GameManager.Instance.ItsGamerTime();
         }
 

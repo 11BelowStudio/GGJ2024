@@ -9,21 +9,23 @@ namespace Scripts.Menu
     public class InGameHUD: MonoBehaviour
     {
 
-        public GameManager manager;
-
+        
         
 		public TextMeshProUGUI waveCounter;
 		
 
-        public Slider disturbanceLevelSlider;
+        public Slider ticklishSlider;
 
-        public Slider cameraPowerSlider;
+        public CanvasGroup ticklishOverlay;
+        
 
         private void Awake()
         {
-            manager = GameManager.Instance;
+            
 			
-			//waveCounter.text = "";
+
+
+			waveCounter.text = "";
 
             //manager.OnCameraPowerLevelChanged += OnCameraPowerLevelChanged;
             //cameraPowerSlider.value = manager.CameraPowerLevel;
@@ -31,18 +33,27 @@ namespace Scripts.Menu
             //disturbanceLevelSlider.value = manager.DisturbanceLevel01;
         }
 		
-		private void OnNewWaveStart(int newWave){
-			waveCounter.text = $"{newWave}";
+		public void OnNewWaveStart(int newWave){
+
+            if (newWave >= 10) {
+                waveCounter.text = $"<b>{newWave}</b>";
+            }
+            else
+            {
+                waveCounter.text = $"<b>Wave {newWave}</b>";
+            }
+			
 		}
 
-        private void OnCameraPowerLevelChanged(float newPower)
-        {
-            cameraPowerSlider.value = newPower;
-        }
+        
 
-        private void OnDisturbanceLevelChanged01(float newDisturbance01)
+        public void OnTicklishLevelChanged01(float newTicklish01)
         {
-            disturbanceLevelSlider.value = newDisturbance01;
+
+            float newVal = 1f - newTicklish01;
+
+            ticklishSlider.value = newVal;
+            ticklishOverlay.alpha = newVal;
         }
     }
 }

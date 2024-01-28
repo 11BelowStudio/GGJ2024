@@ -40,6 +40,12 @@ namespace Scripts.Game.Pirates
             _myPirate = GetComponentInParent<Pirate>();
         }
 
+        private void PirateIsDed()
+        {
+            _myPirate.OnDed -= PirateIsDed;
+            this.enabled = false;
+        }
+
         // Use this for initialization
         void Start()
         {

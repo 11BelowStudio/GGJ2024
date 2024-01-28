@@ -45,7 +45,20 @@ namespace Scripts.Game.Pirates
         public bool IsDed => _isDed;
 
 
+        /// <summary>
+        /// Invoked when this pirate dies
+        /// </summary>
         public Action OnDed;
+
+        /// <summary>
+        /// invoked upon taking damage but not ded
+        /// </summary>
+        public Action OnTakenDamage;
+
+        /// <summary>
+        /// invoked when pirate health changes (returns current health as proportion of max health)
+        /// </summary>
+        public Action<float> OnHealthChanged01;
 
         // Use this for initialization
         protected virtual void Start()
@@ -100,15 +113,18 @@ namespace Scripts.Game.Pirates
         }
 
 
-        public virtual void HurtMe(float damageToDeal)
+        public virtual void HurtMe(float damageToDeal, bool respectGracePeriod = true)
         {
-            if (_gracePeriodLeft  > 0f)
+            if (respectGracePeriod && _gracePeriodLeft  > 0f)
             {
                 // arr, no 'arrmin' another pirate during thar grace period, arr...
                 return;
             }
 
-            _helf -= damageToDeal;
+            _helf = Mathf.Clamp(_helf - damageToDeal, 0f, _maxHelf);
+
+
+            OnHealthChanged01?.Invoke(Mathf.Clamp01(_helf / _maxHelf));
 
             if (_helf <= 0)
             {
@@ -118,7 +134,11 @@ namespace Scripts.Game.Pirates
             }
             else
             {
-                _gracePeriodLeft = _gracePeriodLength;
+                OnTakenDamage?.Invoke();
+                if (respectGracePeriod)
+                {
+                    _gracePeriodLeft = _gracePeriodLength;
+                }
             }
             
         }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Game;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Scripts.Game.Pirates
@@ -26,6 +27,13 @@ namespace Scripts.Game.Pirates
         {
             _myPirate = GetComponentInParent<Pirate>();
             _myCollider = GetComponent<Collider>();
+            _myPirate.OnDed += OnPirateDed;
+        }
+
+        void OnPirateDed()
+        {
+            this.enabled = false;
+            _myPirate.OnDed -= OnPirateDed;
         }
 
         // Use this for initialization
@@ -38,6 +46,18 @@ namespace Scripts.Game.Pirates
         void Update()
         {
 
+        }
+
+        private void OnTriggerStay(Collider collider)
+        {
+            if (collider.TryGetComponent<ComedicDiscouragementZone>(out ComedicDiscouragementZone owOuchOwieOof))
+            {
+                // take constant damage whilst touching the comedic discouragement zone.
+                _myPirate.HurtMe(
+                    owOuchOwieOof.DamagePerSecond * Time.fixedDeltaTime,
+                    false
+                );
+            }
         }
 
         private void OnCollisionEnter(Collision collision)

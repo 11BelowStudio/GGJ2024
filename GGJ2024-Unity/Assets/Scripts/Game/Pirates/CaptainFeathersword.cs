@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Scripts.Game.Pirates
 {
@@ -22,6 +23,13 @@ namespace Scripts.Game.Pirates
         /// </summary>
         public static CaptainFeathersword Instance { get { return _instance; } }
 
+
+        private const float _healthRegenDelayLength = 5f;
+        private const float _healthRegenRate = 2.5f;
+        private float _timeUntilHealthRegen = 0f;
+
+
+
         /// <summary>
         /// try get version of the instance obtainer
         /// </summary>
@@ -33,6 +41,15 @@ namespace Scripts.Game.Pirates
             return (null != instance);
         }
 
+
+        private void OnTakenNonLethalDamage()
+        {
+            // if we take non-lethal damage, reset time until we can regen health
+            _timeUntilHealthRegen = _healthRegenDelayLength;
+        }
+
+        
+
         protected override void Awake()
         {
             base.Awake();
@@ -43,6 +60,8 @@ namespace Scripts.Game.Pirates
             {
                 Destroy(this);
             }
+
+            base.OnTakenDamage += OnTakenNonLethalDamage;
         }
 
 
@@ -59,6 +78,25 @@ namespace Scripts.Game.Pirates
         protected override void Update()
         {
             base.Update();
+
+            if (base.IsDed)
+            {
+                return;
+            }
+
+            // health regen stuff
+            if (_timeUntilHealthRegen > 0f)
+            {
+                _timeUntilHealthRegen -= Time.deltaTime;
+            }
+            else if (_helf < _maxHelf)
+            {
+                _helf = Mathf.Clamp(_helf + (_healthRegenRate * Time.deltaTime), 0, _maxHelf);
+
+                OnHealthChanged01?.Invoke(_helf / _maxHelf);
+            }
+
+            // and input stuff
 
             float vertical = 0;
             if (Input.GetKey(KeyCode.W)) vertical += 1;

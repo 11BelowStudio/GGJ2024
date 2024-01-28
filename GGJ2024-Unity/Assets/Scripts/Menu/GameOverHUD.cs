@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,6 +13,8 @@ namespace Scripts.Game.Menu
         public CanvasGroup goodEndingHud;
 
         public CanvasGroup badEndingHud;
+
+        public TextMeshProUGUI wavesSurvivedText;
 
         public CanvasGroup gameOverHudCanvasGroup;
 
@@ -28,11 +32,21 @@ namespace Scripts.Game.Menu
             playAgainButton.onClick.AddListener(PlayAgain);
         }
 
-        public void BadEnding()
+        public void BadEnding(int wavesSurvived)
         {
             badEndingHud.gameObject.SetActive(true);
             gameOverHudCanvasGroup.interactable = true;
             gameOverHudCanvasGroup.alpha = 1f;
+            wavesSurvivedText.text = $"Ye survived <b>{wavesSurvived}</b> waves!";
+
+            StartCoroutine(WaitToShowPlayAgainButtonRoutine());
+        }
+
+        private IEnumerator WaitToShowPlayAgainButtonRoutine()
+        {
+            yield return new WaitForSeconds(5f);
+            ShowPlayAgainButton();
+            yield break;
         }
 
         public void ShowPlayAgainButton()
