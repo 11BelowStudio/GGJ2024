@@ -711,6 +711,7 @@ MonoBehaviour:
   speed: 10
   rotationSpeed: 60
   blendTreeDamping: 0.1
+  _movePower: 1
   rb: {fileID: 6723522426462937409}
   animator: {fileID: 674498013416161136}
 --- !u!1 &1497174255836158476
@@ -2408,6 +2409,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2272886865428996370}
+  - {fileID: 6097170382531648483}
   m_Father: {fileID: 3279128190459988078}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &7445988611530052260
@@ -2472,7 +2474,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.28328848, y: 0.000000019860439, z: 0.00000052528515}
+  m_ConnectedAnchor: {x: 0.28328973, y: 0.00000013906977, z: 0.00000088291745}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 0
@@ -2627,7 +2629,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 05093fb907f15cd418bff9f9c8005d1e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3172,7 +3174,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.27841532, y: -0.0000003107377, z: 0.00000009126962}
+  m_ConnectedAnchor: {x: 0.278414, y: -0.00000019152853, z: 0.0000000018626505}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 0, z: 1}
   m_XMotion: 0
@@ -4538,3 +4540,105 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 314d8f6a639a5d848999a71b510aa08a, type: 3}
   m_PrefabInstance: {fileID: 2498648221630167312}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5987317270595615752
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 48773457908819483}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.60531646
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.34239143
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.28740752
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.06999996
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.02400001
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.07810223
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.089259885
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.66836447
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.73431724
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -84.578
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -16.406
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -177.202
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
+      propertyPath: m_Name
+      value: Feather_Thick
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3858584797773155681}
+  m_SourcePrefab: {fileID: 100100000, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
+--- !u!4 &6097170382531648483 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
+  m_PrefabInstance: {fileID: 5987317270595615752}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6905795607481581913 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
+  m_PrefabInstance: {fileID: 5987317270595615752}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1818360608 &3858584797773155681
+PositionConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6905795607481581913}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_TranslationAtRest: {x: 0.075, y: -0.022, z: 0.785}
+  m_TranslationOffset: {x: 0, y: 0, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_Active: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 2272886865428996370}
+    weight: 1
