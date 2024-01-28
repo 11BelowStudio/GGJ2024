@@ -100,8 +100,14 @@ For example:
 <author>Pure evil studio</author>
 <from>https://assetstore.unity.com/packages/vfx/shaders/water-effect-fits-for-lowpoly-style-87810</from>
 <license>Standard Unity Asset Store EULA</license>
-<extra>Uses a modified version</extra>
 </asset>
+
+  <asset>
+    <assetname>Buoyancy.cs V2.1</assetname>
+    <author>Alex Zhdankin</author>
+    <from>http://forum.unity3d.com/threads/72974-Buoyancy-script</from>
+    <license>Terms of use: do whatever you like</license>
+  </asset>
 
 <!--
 <asset>
