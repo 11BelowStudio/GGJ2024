@@ -29,8 +29,8 @@ Gameplay design, Prototyping, and overall Unity implementation malarkey
 by 11BelowStudio
 </credit>
 <credit>
-Additional unity implementation refinements and 3D modelling
-by Yang (A Big Owl)
+  Visual style design, 3D modelling and environment art
+  by Yang (A Big Owl)
 </credit>
 <credit>
 Sound effects
@@ -41,7 +41,7 @@ by jujubee0728
 by Kobby6-lang
 </credit>
 <credit>
-Concept art
+Concept art for characters
 by Moktar Ali
 </credit>
 <credit>
@@ -93,6 +93,14 @@ For example:
 <from>https://github.com/llamacademy/get-terrain-texture</from>
 <license>MIT license</license>
 <extra>Uses a modified version of FootstepSoundPlayer.cs</extra>
+</asset>
+  
+<asset>
+<assetname>Water Effect Fits For Lowpoly Style</assetname>
+<author>Pure evil studio</author>
+<from>https://assetstore.unity.com/packages/vfx/shaders/water-effect-fits-for-lowpoly-style-87810</from>
+<license>Standard Unity Asset Store EULA</license>
+<extra>Uses a modified version</extra>
 </asset>
 
 <!--
