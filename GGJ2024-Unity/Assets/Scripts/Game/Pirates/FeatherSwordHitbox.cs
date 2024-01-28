@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Scripts.Utils.Placeholders;
+using UnityEngine;
 
 namespace Scripts.Game.Pirates
 {
@@ -30,6 +31,10 @@ namespace Scripts.Game.Pirates
         /// </summary>
         public Pirate MyPirate => _myPirate;
 
+        [SerializeField] private AudioHolder _swordHitAudioHolder;
+
+        [SerializeField] private AudioSource _swordHitAudioSource;
+
         private void OnValidate()
         {
             _myPirate = GetComponentInParent<Pirate>();
@@ -50,6 +55,14 @@ namespace Scripts.Game.Pirates
         void Start()
         {
 
+        }
+
+        public void PlaySwordHitAudio()
+        {
+            if (_swordHitAudioHolder.TryGetRandomAudioClip(out AudioClip hitNoise))
+            {
+                _swordHitAudioSource.PlayOneShot(hitNoise);
+            }
         }
 
         // Update is called once per frame

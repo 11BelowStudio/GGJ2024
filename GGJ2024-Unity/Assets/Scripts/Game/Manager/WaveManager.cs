@@ -6,6 +6,7 @@ using UnityEngine;
 using System;
 using Scripts.Utils;
 using Scripts.Utils.Types;
+using Scripts.Utils.Placeholders;
 
 namespace Scripts.Game.Manager
 {
@@ -53,6 +54,9 @@ namespace Scripts.Game.Manager
         private Coroutine _betweenWavesCoroutine;
 
 
+        [SerializeField] private AudioHolder _waveClearAudioHolder;
+
+
         public void OnEnemyDed(EnemyPirate IAmDed)
         {
             if (deadEnemies.Contains(IAmDed))
@@ -71,6 +75,12 @@ namespace Scripts.Game.Manager
 
         public void WaveComplete()
         {
+
+            if (GameManager.Instance.gameState != GameState.GAMERING)
+            {
+                // >:(
+                return;
+            }
 
             Debug.Log($"Survived wave {_waveCount}!");
             _waveCount++;
@@ -93,6 +103,12 @@ namespace Scripts.Game.Manager
 
         private IEnumerator StartWaveCoroutine()
         {
+
+            if (_waveClearAudioHolder.TryGetRandomAudioClip(out AudioClip waveSoundEffect))
+            {
+                CaptainFeathersword.Instance.GameCameraAudioSource.PlayOneShot(waveSoundEffect);
+            }
+
             yield return new WaitForSeconds(5f);
             foreach (var enemy in enemies)
             {

@@ -110,6 +110,7 @@ MonoBehaviour:
   _currentMaxAggro: 0.25
   _currentMinSpeed: 0.05
   _currentMaxSpeed: 0.25
+  _waveClearAudioHolder: {fileID: 11400000, guid: 949c96dc903f9fa43986e2c64b55eabb, type: 2}
 --- !u!114 &5463601773105849838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,3 +128,7 @@ MonoBehaviour:
   _gameHUD: {fileID: 0}
   _gameOverHUD: {fileID: 0}
   _gameState: 0
+  _titleThemeHolder: {fileID: 11400000, guid: 34f09f5d1d9744443a326b53ab996ec9, type: 2}
+  _gameThemeHolder: {fileID: 11400000, guid: a8a502a809af6f2479b16615b7a46d7d, type: 2}
+  _gameOverThemeHolder: {fileID: 11400000, guid: 3e0aec416bb1bf34da2e08efba2e8f0d, type: 2}
+  _gameOverNoiseHolder: {fileID: 11400000, guid: f40bd92e7f070e24782e88d9e670c85f, type: 2}

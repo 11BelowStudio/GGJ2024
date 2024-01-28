@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Scripts.Utils.Placeholders;
+using System;
 using UnityEngine;
 
 namespace Scripts.Game.Pirates
@@ -60,10 +61,47 @@ namespace Scripts.Game.Pirates
         /// </summary>
         public Action<float> OnHealthChanged01;
 
+
+        [SerializeField] protected AudioHolder _spawnNoiseHolder;
+
+        [SerializeField] protected AudioHolder _idleNoiseHolder;
+
+        [SerializeField] protected AudioHolder _hurtNoiseHolder;
+
+        [SerializeField] protected AudioHolder _attackingNoiseHolder;
+
+        [SerializeField] protected AudioHolder _laughterNoiseHolder;
+
+        [SerializeField] protected AudioSource _characterAudioSource;
+
         // Use this for initialization
         protected virtual void Start()
         {
 
+        }
+
+        /// <summary>
+        /// plays the noise of attempting an attack
+        /// </summary>
+        public virtual void DoAttackAudio()
+        {
+            if (_attackingNoiseHolder.TryGetRandomAudioClip(out AudioClip attackNoise))
+            {
+                _characterAudioSource.PlayOneShot(attackNoise);
+            }
+        }
+
+        /// <summary>
+        /// plays the laughter of defeat
+        /// </summary>
+        public virtual void DoDedAudio()
+        {
+            if (_laughterNoiseHolder.TryGetRandomAudioClip(out AudioClip laughNoise))
+            {
+                _characterAudioSource.clip = laughNoise;
+                _characterAudioSource.loop = true;
+                _characterAudioSource.Play();
+            }
         }
 
 
@@ -80,6 +118,11 @@ namespace Scripts.Game.Pirates
         {
             _isDed = false;
             _mover = GetComponent<PirateMover>();
+
+            if (_spawnNoiseHolder.TryGetRandomAudioClip(out AudioClip spawnNoise))
+            {
+                _characterAudioSource.PlayOneShot(spawnNoise);
+            }
         }
 
         protected virtual void OnDestroy()
@@ -129,12 +172,21 @@ namespace Scripts.Game.Pirates
             if (_helf <= 0)
             {
                 _mover.DoDed(); // you are ded
+                DoDedAudio();
                 OnDed?.Invoke();
+                
                 _isDed = true;
             }
             else
             {
                 OnTakenDamage?.Invoke();
+                if (_gracePeriodLeft <= 0f)
+                {
+                    if (_hurtNoiseHolder.TryGetRandomAudioClip(out AudioClip hurtNoise))
+                    {
+                        _characterAudioSource.PlayOneShot(hurtNoise);
+                    }
+                }
                 if (respectGracePeriod)
                 {
                     _gracePeriodLeft = _gracePeriodLength;

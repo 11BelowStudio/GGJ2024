@@ -28,7 +28,8 @@ namespace Scripts.Game.Pirates
         private const float _healthRegenRate = 2.5f;
         private float _timeUntilHealthRegen = 0f;
 
-
+        [SerializeField] private AudioSource _gameCameraAudioSource;
+        public AudioSource GameCameraAudioSource => _gameCameraAudioSource;
 
         /// <summary>
         /// try get version of the instance obtainer
@@ -112,14 +113,17 @@ namespace Scripts.Game.Pirates
             if (UnityEngine.Input.GetMouseButtonDown(1) || UnityEngine.Input.GetKeyDown(KeyCode.E))
             {
                 _mover.DoAttack1();
+                DoAttackAudio();
             }
             if (UnityEngine.Input.GetMouseButtonDown(0) || UnityEngine.Input.GetKeyDown(KeyCode.Q))
             {
                 _mover.DoAttack2();
+                DoAttackAudio();
             }
             if (UnityEngine.Input.GetMouseButtonDown(2) || UnityEngine.Input.GetKeyDown(KeyCode.T) || UnityEngine.Input.GetKeyDown(KeyCode.R))
             {
                 _mover.DoTPose();
+                DoAttackAudio();
             }
             /*
             if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha3))

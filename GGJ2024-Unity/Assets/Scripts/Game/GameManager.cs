@@ -8,6 +8,7 @@ using System;
 using Scripts.Utils.Annotations;
 using UnityEngine.SceneManagement;
 using Scripts.Game.Menu;
+using Scripts.Utils.Placeholders;
 
 namespace Scripts.Game
 {
@@ -30,6 +31,21 @@ namespace Scripts.Game
         [ReadOnly]
         private GameState _gameState = GameState.NOT_STARTED;
 
+        public GameState gameState => _gameState;
+
+        [SerializeField]
+        private AudioHolder _titleThemeHolder;
+
+        [SerializeField]
+        private AudioHolder _gameThemeHolder;
+
+        [SerializeField]
+        private AudioHolder _gameOverThemeHolder;
+
+        [SerializeField]
+        private AudioHolder _gameOverNoiseHolder;
+
+        public const string K_PLAYERPREFS_HIGH_SCORE = "K_PLAYERPREFS_HIGH_SCORE";
 
         private void Awake()
         {
@@ -39,6 +55,12 @@ namespace Scripts.Game
             theCaptain.OnDed += OnCaptainFeatherswordDefeated;
 
             _waveManager.OnWaveClear += _gameHUD.OnNewWaveStart;
+
+            if (_titleThemeHolder.TryGetRandomAudioClip(out AudioClip titleTheme))
+            {
+                theCaptain.GameCameraAudioSource.clip = titleTheme;
+                theCaptain.GameCameraAudioSource.loop = true;
+            }
         }
 
         // Use this for initialization
@@ -66,8 +88,12 @@ namespace Scripts.Game
             _gameState = GameState.GAMERING;
 
             _waveManager.WaveComplete();
-            
 
+            if (_gameThemeHolder.TryGetRandomAudioClip(out AudioClip gameTheme))
+            {
+                theCaptain.GameCameraAudioSource.clip = gameTheme;
+                theCaptain.GameCameraAudioSource.loop = true;
+            }
         }
 
         private void OnValidate()
@@ -99,7 +125,25 @@ namespace Scripts.Game
 
             _gameState = GameState.GAME_OVER;
 
+            if (_gameOverNoiseHolder.TryGetRandomAudioClip(out AudioClip gameOverNoise))
+            {
+                theCaptain.GameCameraAudioSource.PlayOneShot(gameOverNoise);
+            }
+
+            if (_gameOverThemeHolder.TryGetRandomAudioClip(out AudioClip gameOverTheme))
+            {
+                theCaptain.GameCameraAudioSource.clip = gameOverTheme;
+                theCaptain.GameCameraAudioSource.loop = true;
+            }
+
             int wavesSurvived = _waveManager.WavesSurvived;
+
+            int highestScore = PlayerPrefs.GetInt(K_PLAYERPREFS_HIGH_SCORE);
+            if (wavesSurvived > highestScore)
+            {
+                PlayerPrefs.SetInt(K_PLAYERPREFS_HIGH_SCORE, wavesSurvived);
+            }
+
             _waveManager.enabled = false;
             // TODO: lose the game
             _gameOverHUD.gameObject.SetActive(true);

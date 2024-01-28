@@ -1,6 +1,7 @@
 ﻿using System;
 using Scripts.Game;
 using Scripts.MainMenuStuff.Credits;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +23,8 @@ namespace Scripts.Menu
         [SerializeField] private Button showCreditsButton;
 
         [SerializeField] private Button instructionsPopupButton;
+
+        [SerializeField] private TextMeshProUGUI highScoreText;
 
         private bool _isShowingCredits = false;
 
@@ -45,6 +48,9 @@ namespace Scripts.Menu
             theCredits.HideMe();
             entireCanvasGroupForTheWholeMenu.alpha = 1f;
             entireCanvasGroupForTheWholeMenu.interactable = true;
+
+            int highestScore = PlayerPrefs.GetInt(GameManager.K_PLAYERPREFS_HIGH_SCORE);
+            highScoreText.text = $"High Score: {highestScore}";
         }
 
         private void ShowInstructionsPopup()
@@ -55,6 +61,7 @@ namespace Scripts.Menu
             mainMenuCanvasGroup.interactable = false;
             mainMenuCanvasGroup.alpha = 0f;
             instructionsPopupButton.gameObject.SetActive(true);
+            instructionsPopupButton.Select();
         }
 
         private void Update()

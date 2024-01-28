@@ -315,6 +315,7 @@ namespace Scripts.Game.Pirates
 
                 if (UnityEngine.Random.value < _attackChance)
                 {
+                    _pirate.DoAttackAudio(); // make attack noise
                     switch (_attackBehaviour)
                     {
                         case EnemyAgentAttackBehaviours.PASSIVE:

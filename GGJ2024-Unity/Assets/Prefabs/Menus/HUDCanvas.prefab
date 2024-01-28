@@ -2553,7 +2553,7 @@ GameObject:
   - component: {fileID: 6114045070929750364}
   - component: {fileID: 6253937930218247234}
   m_Layer: 5
-  m_Name: endless mode score displayer
+  m_Name: high score text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3652,6 +3652,7 @@ MonoBehaviour:
   startGameButton: {fileID: 6160081939467838795}
   showCreditsButton: {fileID: 9020602807049175223}
   instructionsPopupButton: {fileID: 531163957845005858}
+  highScoreText: {fileID: 6253937930218247234}
 --- !u!1 &8068616905394785226
 GameObject:
   m_ObjectHideFlags: 0
@@ -4749,7 +4750,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef320fd102904776b30138453976eb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
   waveCounter: {fileID: 95014377287191402}
   ticklishSlider: {fileID: 6829824154513000062}
   ticklishOverlay: {fileID: 8067223255459896797}

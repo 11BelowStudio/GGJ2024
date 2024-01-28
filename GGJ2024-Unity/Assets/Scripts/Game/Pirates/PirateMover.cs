@@ -183,6 +183,7 @@ namespace Scripts.Game.Pirates
         {
             if (is_ded) { return; }
             animator.SetTrigger(ATTACK_1);
+
         }
 
         /// <summary>

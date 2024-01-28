@@ -204,6 +204,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9eddf3d06e6bed4c851af8bb783aaf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &7569976133040495330 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 222525704284754026, guid: 96c7443cb26fa224bb7de99c2a108cd9, type: 3}
+  m_PrefabInstance: {fileID: 7645815694710868616}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8768849508544820625 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1417036250769342233, guid: 96c7443cb26fa224bb7de99c2a108cd9, type: 3}
@@ -226,6 +231,12 @@ MonoBehaviour:
   _gracePeriodLength: 0.5
   _mover: {fileID: 6900632893904174430}
   _isDed: 0
+  _spawnNoiseHolder: {fileID: 11400000, guid: b4c7d697d84aeb449b60ba3fa6e597f9, type: 2}
+  _idleNoiseHolder: {fileID: 11400000, guid: 354b3763b4715f2418db8d60e6162f1c, type: 2}
+  _hurtNoiseHolder: {fileID: 11400000, guid: 56741f1a7c31cbc4596f1b7789b94579, type: 2}
+  _attackingNoiseHolder: {fileID: 11400000, guid: 121ef811f199e074a9ef6c7c8806d7af, type: 2}
+  _laughterNoiseHolder: {fileID: 11400000, guid: 52dbb0f3a7522544abea7319ec560276, type: 2}
+  _characterAudioSource: {fileID: 7569976133040495330}
   _ai: {fileID: 2824342971494846964}
 --- !u!114 &2824342971494846964
 MonoBehaviour:
@@ -248,6 +259,7 @@ MonoBehaviour:
   _attackTimeMod: 0
   _attackChance: 0
   _distanceMod: 0
+  _randomChangeDelay: 0
   _distanceTarget: 0
   _sqrDistanceTarget: 0
   _attackTimer: 0

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Scripts.Utils.Annotations;
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,6 +20,17 @@ namespace Scripts.Game.Pirates
 
         public Action<EnemyPirate> OnDedReference;
 
+        private const float _minIdleNoiseDelay = 7.5f;
+        private const float _maxIdleNoiseDelay = 30f;
+
+        private float IdleNoiseDelay { get { return UnityEngine.Random.Range(_minIdleNoiseDelay, _maxIdleNoiseDelay); } }
+
+        [SerializeField]
+        [ReadOnly]
+        private float _idleNoiseTimer = _maxIdleNoiseDelay;
+
+
+
         protected override void OnValidate()
         {
             base.OnValidate();
@@ -31,7 +43,7 @@ namespace Scripts.Game.Pirates
             OnDed += OnDedInvokeReference;
             base.Awake();
             _ai = GetComponent<EnemyAgentAI>();
-
+            _idleNoiseTimer = IdleNoiseDelay;
         }
 
         private void OnDedInvokeReference()
@@ -48,7 +60,24 @@ namespace Scripts.Game.Pirates
         // Update is called once per frame
         protected override void Update()
         {
+            
+            if (!IsDed)
+            {
+                _idleNoiseTimer -= Time.deltaTime;
+                if (_idleNoiseTimer <= 0)
+                {
+                    _idleNoiseTimer = IdleNoiseDelay;
+                    if (_idleNoiseHolder.TryGetRandomAudioClip(out AudioClip idleNoise))
+                    {
+                        _characterAudioSource.PlayOneShot(idleNoise);
+                    }
+                }
+            }
+            
             base.Update();
+
+            
+            
         }
     }
 }
