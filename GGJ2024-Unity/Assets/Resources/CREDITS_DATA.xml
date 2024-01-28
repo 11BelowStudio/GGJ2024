@@ -29,8 +29,8 @@ Gameplay design, Prototyping, and overall Unity implementation malarkey
 by Rachel Lowe (11BelowStudio)
 </credit>
 <credit>
-Additional unity implementation refinements and 3D modelling
-by Yang (A Big Owl)
+  Visual style design, 3D modelling and environment art
+  by Yang (A Big Owl)
 </credit>
 <credit>
 Sound effects
@@ -41,7 +41,7 @@ by jujubee0728
 by Kobby6-lang
 </credit>
 <credit>
-Concept art
+Concept art for characters
 by Moktar Ali
 </credit>
 <credit>
@@ -93,6 +93,20 @@ For example:
 <license>MIT license</license>
 <extra>Uses a modified version of FootstepSoundPlayer.cs</extra>
 </asset>
+  
+<asset>
+<assetname>Water Effect Fits For Lowpoly Style</assetname>
+<author>Pure evil studio</author>
+<from>https://assetstore.unity.com/packages/vfx/shaders/water-effect-fits-for-lowpoly-style-87810</from>
+<license>Standard Unity Asset Store EULA</license>
+</asset>
+
+  <asset>
+    <assetname>Buoyancy.cs V2.1</assetname>
+    <author>Alex Zhdankin</author>
+    <from>http://forum.unity3d.com/threads/72974-Buoyancy-script</from>
+    <license>Terms of use: do whatever you like</license>
+  </asset>
 
 <asset>
 <assetname>R07-40-Whoops, Whistles, Laughter.wav</assetname>
