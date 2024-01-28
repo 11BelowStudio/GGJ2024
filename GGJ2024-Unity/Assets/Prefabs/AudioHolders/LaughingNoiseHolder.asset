@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25a70e25ea9fe474988a0e3990581d5d, type: 3}
   m_Name: LaughingNoiseHolder
   m_EditorClassIdentifier: 
-  audioClips: []
+  audioClips:
+  - {fileID: 8300000, guid: 8dd9bc34dc226ea40815e5b61a9b9d07, type: 3}
+  - {fileID: 8300000, guid: 03d4dca50db18f2478ded6fab34ebb97, type: 3}
+  - {fileID: 8300000, guid: 1decaa147959ff34a92fd316aaa6dcbd, type: 3}
+  - {fileID: 8300000, guid: e8b7c28a8a9c078488809809d72b5097, type: 3}
+  - {fileID: 8300000, guid: 66b1c390aa3056e4ea5f9f7b79bc1e5f, type: 3}
+  - {fileID: 8300000, guid: 59049952131a3104e9873ba57c6a185a, type: 3}
+  - {fileID: 8300000, guid: 8ed310612a3df0e438320d05f7485514, type: 3}

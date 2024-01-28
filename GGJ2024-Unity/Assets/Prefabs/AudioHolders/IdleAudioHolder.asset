@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25a70e25ea9fe474988a0e3990581d5d, type: 3}
   m_Name: IdleAudioHolder
   m_EditorClassIdentifier: 
-  audioClips: []
+  audioClips:
+  - {fileID: 8300000, guid: f3b23e4170c4a064d9194d182c9387c3, type: 3}
+  - {fileID: 8300000, guid: c85e45cebbb2c0e40bd397a7f6bf57f3, type: 3}
+  - {fileID: 8300000, guid: 996cda579a1175343b775f82c8228dc1, type: 3}
+  - {fileID: 8300000, guid: d0835fd5bb14c3a4c8c4fa84ba0af802, type: 3}
+  - {fileID: 8300000, guid: 2abab8ce328d1dc47b00d4bd39c69283, type: 3}
