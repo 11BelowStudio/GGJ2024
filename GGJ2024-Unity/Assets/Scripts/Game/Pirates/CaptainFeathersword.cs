@@ -71,14 +71,19 @@ namespace Scripts.Game.Pirates
             _mover.verticalInput = vertical;
             _mover.horizontalInput = horizontal;
 
-            if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha1))
+            if (UnityEngine.Input.GetMouseButtonDown(1) || UnityEngine.Input.GetKeyDown(KeyCode.E))
             {
                 _mover.DoAttack1();
             }
-            if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha2))
+            if (UnityEngine.Input.GetMouseButtonDown(0) || UnityEngine.Input.GetKeyDown(KeyCode.Q))
             {
                 _mover.DoAttack2();
             }
+            if (UnityEngine.Input.GetMouseButtonDown(2) || UnityEngine.Input.GetKeyDown(KeyCode.T) || UnityEngine.Input.GetKeyDown(KeyCode.R))
+            {
+                _mover.DoTPose();
+            }
+            /*
             if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha3))
             {
                 _mover.DoDed();
@@ -86,11 +91,8 @@ namespace Scripts.Game.Pirates
             if (UnityEngine.Input.GetKeyDown(KeyCode.Alpha4))
             {
                 _mover.DoNotDed();
-            }
-            if (UnityEngine.Input.GetKeyDown(KeyCode.T))
-            {
-                _mover.DoTPose();
-            }
+            }*/
+            
         }
     }
 }

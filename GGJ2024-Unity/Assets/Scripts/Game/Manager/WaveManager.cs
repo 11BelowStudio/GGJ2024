@@ -74,6 +74,7 @@ namespace Scripts.Game.Manager
                 Destroy(enemy.gameObject);
             }
             deadEnemies.Clear();
+            enemies.Clear();
 
             OnWaveClear?.Invoke(waveCount);
 

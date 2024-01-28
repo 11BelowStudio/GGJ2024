@@ -1,10 +1,12 @@
 ﻿using Scripts.Game.Pirates;
+using Scripts.Game.Manager;
 using System.Collections;
 using UnityEngine;
+using Scripts.Utils.Types;
 
-namespace Scripts.Game.Manager
+namespace Scripts.Game
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : Singleton<GameManager>
     {
 
         [SerializeField]
@@ -27,6 +29,12 @@ namespace Scripts.Game.Manager
             {
                 Application.Quit();
             }
+        }
+
+        // it is time to commence the gamering.
+        public void ItsGamerTime()
+        {
+
         }
 
 
