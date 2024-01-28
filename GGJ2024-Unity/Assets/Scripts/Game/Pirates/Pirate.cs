@@ -158,6 +158,9 @@ namespace Scripts.Game.Pirates
 
         public virtual void HurtMe(float damageToDeal, bool respectGracePeriod = true)
         {
+
+            if (_isDed) { return; }
+
             if (respectGracePeriod && _gracePeriodLeft  > 0f)
             {
                 // arr, no 'arrmin' another pirate during thar grace period, arr...
@@ -184,6 +187,7 @@ namespace Scripts.Game.Pirates
                 {
                     if (_hurtNoiseHolder.TryGetRandomAudioClip(out AudioClip hurtNoise))
                     {
+                        
                         _characterAudioSource.PlayOneShot(hurtNoise);
                     }
                 }

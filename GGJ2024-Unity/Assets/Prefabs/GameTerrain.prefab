@@ -98,7 +98,6 @@ GameObject:
   - component: {fileID: 8475050370234776248}
   - component: {fileID: 6444925264685120602}
   - component: {fileID: 7297844920280851229}
-  - component: {fileID: 4395308382929050101}
   m_Layer: 0
   m_Name: Comedic Discouragement Zone
   m_TagString: Untagged
@@ -115,8 +114,8 @@ Transform:
   m_GameObject: {fileID: 5924141693578301763}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 0.5, z: 10}
+  m_LocalPosition: {x: 0, y: -10, z: 0}
+  m_LocalScale: {x: 10, y: 20.8, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5355242623039363188}
@@ -205,25 +204,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagePerSecond: 5
---- !u!114 &4395308382929050101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5924141693578301763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!1 &6907452180218178578
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,6 +216,7 @@ GameObject:
   - component: {fileID: 7399974042949651351}
   - component: {fileID: 3931790415792398675}
   - component: {fileID: 5847567786866077419}
+  - component: {fileID: 4368941047753469414}
   m_Layer: 0
   m_Name: sea
   m_TagString: Untagged
@@ -331,6 +312,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &4368941047753469414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6907452180218178578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &7714109750792045522
 GameObject:
   m_ObjectHideFlags: 0

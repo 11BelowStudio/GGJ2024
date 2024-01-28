@@ -86,7 +86,6 @@ For example:
 <from>https://globalgamejam.org/sponsor/northern-alberta-institute-technology-nait</from>
 <license>Freeware</license>
 </asset>
-
 <asset>
 <assetname>get-terrain-texture</assetname>
 <author>LlamAcademy</author>
@@ -95,6 +94,88 @@ For example:
 <extra>Uses a modified version of FootstepSoundPlayer.cs</extra>
 </asset>
 
+<asset>
+<assetname>R07-40-Whoops, Whistles, Laughter.wav</assetname>
+<author>craigsmith</author>
+<from>https://freesound.org/people/craigsmith/sounds/480754/</from>
+<license>CC0</license>
+</asset>
+<asset>
+<assetname>Mocking Laughter</assetname>
+<author>Apheo</author>
+<from>https://freesound.org/people/Apheo/sounds/382906/</from>
+<license>CC0</license>
+</asset>
+
+<asset>
+<assetname>ccc_laughter.wav</assetname>
+<author>uair01</author>
+<from>https://freesound.org/people/uair01/sounds/89286/</from>
+<license>CC-BY-3.0</license>
+</asset>
+
+<asset>
+<assetname>Hehehe - Laughter</assetname>
+<author>vikuserro</author>
+<from>https://freesound.org/people/vikuserro/sounds/341036/</from>
+<license>CC-BY-4.0</license>
+</asset>
+
+<asset>
+<assetname>Laughter.mp3</assetname>
+<author>Topschool</author>
+<from>https://freesound.org/people/Topschool/sounds/360466/</from>
+<license>CC0</license>
+</asset>
+
+<asset>
+<assetname>Laughter.mp3</assetname>
+<author>Topschool</author>
+<from>https://freesound.org/people/Topschool/sounds/360466/</from>
+<license>CC0</license>
+</asset>
+
+<asset>
+<assetname>live audience comedy show genuine laughter_moderate.wav</assetname>
+<author>HowardV</author>
+<from>https://freesound.org/people/HowardV/sounds/581528/</from>
+<license>CC0</license>
+</asset>
+
+<asset>
+<assetname>cackle laugh.wav</assetname>
+<author>ERH</author>
+<from>https://freesound.org/people/ERH/sounds/30941/</from>
+<license>CC-BY-4.0</license>
+</asset>
+
+<asset>
+<assetname>pirate Arr! 2</assetname>
+<author>JD_Brick_Productions</author>
+<from>https://freesound.org/people/JD_Brick_Productions/sounds/476325/</from>
+<license>CC0</license>
+</asset>
+
+<asset>
+<assetname>PirateMatt (1).wav</assetname>
+<author>qalba4j</author>
+<from>https://freesound.org/people/qalba4j/sounds/401931/</from>
+<license>CC0</license>
+</asset>
+
+<asset>
+<assetname>01_hey.wav</assetname>
+<author>wayneoutthere</author>
+<from>https://freesound.org/people/wayneoutthere/sounds/353137/</from>
+<license>CC0</license>
+</asset>
+
+<asset>
+<assetname>04_Thats_Me_Treasure.wav</assetname>
+<author>wayneoutthere</author>
+<from>https://freesound.org/people/wayneoutthere/sounds/353134/</from>
+<license>CC0</license>
+</asset>
 <!--
 <asset>
 <assetname>haha 'ass'et lmao</assetname>

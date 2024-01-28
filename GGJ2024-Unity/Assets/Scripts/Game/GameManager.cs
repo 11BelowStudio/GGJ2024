@@ -91,8 +91,11 @@ namespace Scripts.Game
 
             if (_gameThemeHolder.TryGetRandomAudioClip(out AudioClip gameTheme))
             {
+                theCaptain.GameCameraAudioSource.Stop();
+
                 theCaptain.GameCameraAudioSource.clip = gameTheme;
                 theCaptain.GameCameraAudioSource.loop = true;
+                theCaptain.GameCameraAudioSource.Play();
             }
         }
 
@@ -124,6 +127,8 @@ namespace Scripts.Game
             }
 
             _gameState = GameState.GAME_OVER;
+
+            theCaptain.GameCameraAudioSource.Stop();
 
             if (_gameOverNoiseHolder.TryGetRandomAudioClip(out AudioClip gameOverNoise))
             {

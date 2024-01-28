@@ -565,6 +565,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameTerrain
       objectReference: {fileID: 0}
+    - target: {fileID: 8475050370234776248, guid: a133ebd6eefbc4442bc0d81d3d6f2e8c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8534915659103166228, guid: a133ebd6eefbc4442bc0d81d3d6f2e8c, type: 3}
       propertyPath: m_Name
       value: Trees and Stones
