@@ -29,11 +29,11 @@ Gameplay design, Prototyping, and overall Unity implementation malarkey
 by Rachel Lowe (11BelowStudio)
 </credit>
 <credit>
-Additional unity implementation refinements
+Additional unity implementation refinements and 3D modelling
 by Yang (A Big Owl)
 </credit>
 <credit>
-Audio stuff
+Sound effects
 by jujubee0728
 </credit>
 <credit>
@@ -86,6 +86,15 @@ For example:
 <from>https://globalgamejam.org/sponsor/northern-alberta-institute-technology-nait</from>
 <license>Freeware</license>
 </asset>
+
+<asset>
+<assetname>get-terrain-texture</assetname>
+<author>LlamAcademy</author>
+<from>https://github.com/llamacademy/get-terrain-texture</from>
+<license>MIT license</license>
+<extra>Uses a modified version of FootstepSoundPlayer.cs</extra>
+</asset>
+
 <!--
 <asset>
 <assetname>haha 'ass'et lmao</assetname>
@@ -141,6 +150,29 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </licensetext>
+<licensetext>
+get-terrain-texture
+
+Copyright (c) 2021 LlamAcademy
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</licensetext>
 </licenses>
 <others>
 <!--
@@ -149,9 +181,9 @@ For other bits of credits that don't neatly fit in elsewhere.
 <other>
 Developed using Unity 2022.3.18f1
 </other>
-<other>
+<!--<other>
 Loosely based on some totally real lost media featuring
 Captain Feathersword from The Wiggles
-</other>
+</other>-->
 </others>
 </credits_data>

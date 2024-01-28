@@ -111,6 +111,7 @@ MonoBehaviour:
   _currentMinSpeed: 0.05
   _currentMaxSpeed: 0.25
   _waveClearAudioHolder: {fileID: 11400000, guid: 949c96dc903f9fa43986e2c64b55eabb, type: 2}
+  _waveStartAudioHolder: {fileID: 11400000, guid: 309cabb31ef38dd40a4571c13b7338c9, type: 2}
 --- !u!114 &5463601773105849838
 MonoBehaviour:
   m_ObjectHideFlags: 0

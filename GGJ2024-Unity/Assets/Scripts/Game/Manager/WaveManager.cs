@@ -55,7 +55,7 @@ namespace Scripts.Game.Manager
 
 
         [SerializeField] private AudioHolder _waveClearAudioHolder;
-
+        [SerializeField] private AudioHolder _waveStartAudioHolder;
 
         public void OnEnemyDed(EnemyPirate IAmDed)
         {
@@ -98,18 +98,26 @@ namespace Scripts.Game.Manager
             _currentMaxSpeed = Mathf.Clamp(_currentMaxSpeed + _maxAggroIncreasePerWave, 0f, 2f);
             _currentMinSpeed = Mathf.Clamp(_currentMinSpeed + _minAggroIncreasePerWave, 0f, 2f);
 
+            if (_waveClearAudioHolder.TryGetRandomAudioClip(out AudioClip waveSoundEffect))
+            {
+                CaptainFeathersword.Instance.GameCameraAudioSource.PlayOneShot(waveSoundEffect);
+            }
+
             _betweenWavesCoroutine = StartCoroutine(StartWaveCoroutine());
         }
 
         private IEnumerator StartWaveCoroutine()
         {
 
-            if (_waveClearAudioHolder.TryGetRandomAudioClip(out AudioClip waveSoundEffect))
-            {
-                CaptainFeathersword.Instance.GameCameraAudioSource.PlayOneShot(waveSoundEffect);
-            }
+            
 
             yield return new WaitForSeconds(5f);
+
+            if (_waveStartAudioHolder.TryGetRandomAudioClip(out AudioClip nextWaveSoundEffect))
+            {
+                CaptainFeathersword.Instance.GameCameraAudioSource.PlayOneShot(nextWaveSoundEffect);
+            }
+
             foreach (var enemy in enemies)
             {
                 Destroy(enemy.gameObject);

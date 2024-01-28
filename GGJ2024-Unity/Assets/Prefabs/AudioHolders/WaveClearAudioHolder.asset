@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25a70e25ea9fe474988a0e3990581d5d, type: 3}
   m_Name: WaveClearAudioHolder
   m_EditorClassIdentifier: 
-  audioClips: []
+  audioClips:
+  - {fileID: 8300000, guid: 5f9521caa49cfae4db91346a1dfdd537, type: 3}
+  - {fileID: 8300000, guid: fc3a664ea7a960442932734b0542dac7, type: 3}
+  - {fileID: 8300000, guid: bec86479e91820140b9fceb6f2f28b68, type: 3}

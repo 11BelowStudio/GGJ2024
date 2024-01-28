@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25a70e25ea9fe474988a0e3990581d5d, type: 3}
   m_Name: GameOverNoiseHolder
   m_EditorClassIdentifier: 
-  audioClips: []
+  audioClips:
+  - {fileID: 8300000, guid: bb5b6324677272c4c8374c2822ec0a9f, type: 3}

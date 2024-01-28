@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25a70e25ea9fe474988a0e3990581d5d, type: 3}
-  m_Name: AttackAudioHolder
+  m_Name: WaveStartAudioHolder
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: b04580ef717b0214f88f8e598a68ed3a, type: 3}
+  - {fileID: 8300000, guid: 4a18edd96517d714e9e32fb0b3b749cc, type: 3}
