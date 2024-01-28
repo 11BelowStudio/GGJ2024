@@ -49,7 +49,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 3242542186e0e974899d4ed55d9e7ebf, type: 3}
+        m_Texture: {fileID: 10307, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -100,7 +100,7 @@ Material:
     m_Colors:
     - _AnimationDirection: {r: 1, g: 1, b: 1, a: 1}
     - _AnimationTiling: {r: 2.2, g: 2.2, b: -1.1, a: -1.1}
-    - _BaseColor: {r: 0.54, g: 0.95, b: 0.99, a: 0.5}
+    - _BaseColor: {r: 0.9103774, g: 0.9900419, b: 1, a: 0.5}
     - _BumpDirection: {r: 1, g: 1, b: -1, a: 1}
     - _BumpTiling: {r: 1, g: 1, b: -2, a: 3}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
@@ -113,7 +113,7 @@ Material:
     - _GSpeed: {r: 1.2, g: 1.375, b: 1.1, a: 1.5}
     - _GSteepness: {r: 1, g: 1, b: 1, a: 1}
     - _InvFadeParemeter: {r: 0.15, g: 0.15, b: 0.5, a: 1}
-    - _ReflectionColor: {r: 0.54, g: 0.95, b: 0.99, a: 0.5}
+    - _ReflectionColor: {r: 0.8924439, g: 0.9819588, b: 0.990566, a: 0.5}
     - _SpecularColor: {r: 0.72, g: 0.72, b: 0.72, a: 1}
     - _WavesColor: {r: 0.3, g: 0.35, b: 0.25, a: 0.25}
     - _WorldLightDir: {r: 0, g: 0.1, b: -0.5, a: 0}

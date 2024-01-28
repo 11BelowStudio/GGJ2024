@@ -21,9 +21,9 @@ Properties {
 	
 	_FresnelScale ("FresnelScale", Range (0.15, 4.0)) = 0.75
 
-	_BaseColor ("Base color", COLOR)  = ( .54, .95, .99, 0.5)
-	_ReflectionColor ("Reflection color", COLOR)  = ( .54, .95, .99, 0.5)
-	_SpecularColor ("Specular color", COLOR)  = ( .72, .72, .72, 1)
+	_BaseColor ("Base color", COLOR)  = ( .54, .65, .69, 0.5)//.54, .95, .99, 0.5
+	_ReflectionColor ("Reflection color", COLOR)  = ( .54, .65, .69, 0.5)//.54, .95, .99, 0.5
+	_SpecularColor ("Specular color", COLOR)  = ( .72, .72, .72, 1)// .72, .72, .72, 1
 	
 	_WorldLightDir ("Specular light direction", Vector) = (0.0, 0.1, -0.5, 0.0)
 	_Shininess ("Shininess", Range (2.0, 500.0)) = 200.0

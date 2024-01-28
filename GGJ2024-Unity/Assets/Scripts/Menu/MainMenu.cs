@@ -72,7 +72,15 @@ namespace Scripts.Menu
                 {
                     _waitOneFrame = false;
                 }
-                else if (Input.GetButtonDown("Submit"))
+                else if (Input.GetButtonDown("Submit")|| 
+                            Input.GetMouseButtonDown(0) ||
+                            Input.GetMouseButtonDown(1) ||
+                            Input.GetKeyDown(KeyCode.A) ||
+                            Input.GetKeyDown(KeyCode.W) ||
+                            Input.GetKeyDown(KeyCode.S) ||
+                            Input.GetKeyDown(KeyCode.D) ||
+                            Input.GetKeyDown(KeyCode.Q) ||
+                            Input.GetKeyDown(KeyCode.E))
                 {
                     GamerTime();
                 }
