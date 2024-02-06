@@ -4465,6 +4465,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundData: {fileID: 11400000, guid: ec267d9a150684d4fb10261c06e107a7, type: 2}
+  _worldLayerMask:
+    serializedVersion: 2
+    m_Bits: 4096
+  footstepSpeed: 0.3
 --- !u!1 &8270564735009163190
 GameObject:
   m_ObjectHideFlags: 0
@@ -4962,6 +4966,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundData: {fileID: 11400000, guid: ec267d9a150684d4fb10261c06e107a7, type: 2}
+  _worldLayerMask:
+    serializedVersion: 2
+    m_Bits: 4096
+  footstepSpeed: 0.3
 --- !u!1001 &2498648221630167312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5181,15 +5189,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.070001096
+      value: 0.06999996
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.024000129
+      value: -0.02400001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.7500001
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 70a0b9f087e0950498b8fb9cd57b87ec, type: 3}
       propertyPath: m_LocalRotation.w

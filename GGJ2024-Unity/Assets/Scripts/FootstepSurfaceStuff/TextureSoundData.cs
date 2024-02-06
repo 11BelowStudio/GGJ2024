@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Scripts.FootstepSurfaceStuff
@@ -19,6 +19,29 @@ namespace Scripts.FootstepSurfaceStuff
         public TextureSound[] TextureSounds => _textureSounds;
 
         public bool BlendTerrainSounds => _blendTerrainSounds;
+
+
+        private Dictionary<Texture, AudioClip[]> textureClipsDict;
+
+        private void OnValidate()
+        {
+            textureClipsDict = new Dictionary<Texture, AudioClip[]>();
+            foreach (var textureSounds in _textureSounds)
+            {
+                textureClipsDict[textureSounds.Albedo] = textureSounds.Clips;
+            }
+        }
+
+        public bool TryGetClipFromTexture(Texture texture, out AudioClip _clip)
+        {
+            _clip = null;
+            if (textureClipsDict.TryGetValue(texture, out AudioClip[] clips))
+            {
+                _clip = clips[Random.Range(0, clips.Length)];
+                return true;
+            }
+            return false;
+        }
 
     }
 

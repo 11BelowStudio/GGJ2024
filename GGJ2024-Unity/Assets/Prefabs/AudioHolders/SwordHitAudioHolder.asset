@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25a70e25ea9fe474988a0e3990581d5d, type: 3}
   m_Name: SwordHitAudioHolder
   m_EditorClassIdentifier: 
-  audioClips: []
+  audioClips:
+  - {fileID: 8300000, guid: 80df11410aeb738438575de043736c3b, type: 3}
+  - {fileID: 8300000, guid: 600be004f6322314aa6353643602a193, type: 3}
+  - {fileID: 8300000, guid: 2fa158d59d753c34c852f02efafd6b16, type: 3}
+  - {fileID: 8300000, guid: b04580ef717b0214f88f8e598a68ed3a, type: 3}

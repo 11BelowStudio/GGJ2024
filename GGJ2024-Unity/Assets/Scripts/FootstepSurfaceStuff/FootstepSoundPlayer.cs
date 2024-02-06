@@ -24,18 +24,56 @@ namespace Scripts.FootstepSurfaceStuff
 
         private AudioSource AudioSource;
 
+        private Rigidbody _rb;
+
         private void Awake()
         {
 
             AudioSource = GetComponent<AudioSource>();
+            _rb = GetComponent<Rigidbody>();
         }
 
+        private void Start()
+        {
+            StartCoroutine(CheckGround());
+        }
+
+
+      
+        
+        private IEnumerator CheckGround()
+        {
+            while (true)
+            {
+                if (Mathf.Abs(_rb.velocity.y) <= 0.1f && _rb.velocity.sqrMagnitude >= 1f &&
+                    Physics.Raycast(transform.position,
+                        Vector3.down,
+                        out RaycastHit hit,
+                        0.2f,
+                        FloorLayer)
+                    )
+                {
+                    if (hit.collider.TryGetComponent<Terrain>(out Terrain terrain))
+                    {
+                        yield return StartCoroutine(PlayFootstepSoundFromTerrain(terrain, hit.point));
+                    }
+                    /*
+                    else if (hit.collider.TryGetComponent<Renderer>(out Renderer renderer))
+                    {
+                        yield return StartCoroutine(PlayFootstepSoundFromRenderer(renderer));
+                    }*/
+                }
+
+                yield return null;
+            }
+        }
         
 
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.collider.TryGetComponent<Terrain>(out Terrain terrain))
             {
+                
                 StartCoroutine(PlayFootstepSoundFromTerrain(terrain, collision.GetContact(0).point));
             }
             /*
@@ -72,7 +110,18 @@ namespace Scripts.FootstepSurfaceStuff
                         primaryIndex = i;
                     }
                 }
-
+                
+                if (soundData.TryGetClipFromTexture(
+                    Terrain.terrainData.terrainLayers[primaryIndex].diffuseTexture,
+                    out AudioClip playThisSound
+                    )
+                )
+                {
+                    AudioSource.PlayOneShot(playThisSound);
+                    yield return new WaitForSeconds(playThisSound.length);
+                }
+                
+                /*
                 foreach (TextureSound textureSound in TextureSounds)
                 {
                     if (textureSound.Albedo == Terrain.terrainData.terrainLayers[primaryIndex].diffuseTexture)
@@ -83,6 +132,7 @@ namespace Scripts.FootstepSurfaceStuff
                         break;
                     }
                 }
+                */
             }
             else
             {
@@ -92,6 +142,17 @@ namespace Scripts.FootstepSurfaceStuff
                 {
                     if (alphaMap[0, 0, i] > 0)
                     {
+                        if (soundData.TryGetClipFromTexture(
+                            Terrain.terrainData.terrainLayers[i].diffuseTexture,
+                            out AudioClip playThisSound
+                            )
+                        )
+                        {
+                            AudioSource.PlayOneShot(playThisSound, alphaMap[0, 0, i]);
+                            clips.Add(playThisSound);
+                            clipIndex++;
+                        }
+                        /*
                         foreach (TextureSound textureSound in TextureSounds)
                         {
                             if (textureSound.Albedo == Terrain.terrainData.terrainLayers[i].diffuseTexture)
@@ -103,6 +164,7 @@ namespace Scripts.FootstepSurfaceStuff
                                 break;
                             }
                         }
+                        */
                     }
                 }
 
@@ -114,6 +176,17 @@ namespace Scripts.FootstepSurfaceStuff
 
         private IEnumerator PlayFootstepSoundFromRenderer(Renderer Renderer)
         {
+
+            if (soundData.TryGetClipFromTexture(
+                Renderer.material.GetTexture("_MainTex"),
+                out AudioClip playThisSound
+                )
+            )
+            {
+                AudioSource.PlayOneShot(playThisSound);
+                yield return new WaitForSeconds(playThisSound.length);
+            }
+            /*
             foreach (TextureSound textureSound in TextureSounds)
             {
                 if (textureSound.Albedo == Renderer.material.GetTexture("_MainTex"))
@@ -124,7 +197,7 @@ namespace Scripts.FootstepSurfaceStuff
                     yield return new WaitForSeconds(clip.length);
                     break;
                 }
-            }
+            }*/
         }
 
         private AudioClip GetClipFromTextureSound(TextureSound TextureSound)
