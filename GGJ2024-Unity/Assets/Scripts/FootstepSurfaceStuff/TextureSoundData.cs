@@ -20,10 +20,20 @@ namespace Scripts.FootstepSurfaceStuff
 
         public bool BlendTerrainSounds => _blendTerrainSounds;
 
-
+        [SerializeField]
         private Dictionary<Texture, AudioClip[]> textureClipsDict;
 
+        private void Awake()
+        {
+            GenerateTextureClipsDict();
+        }
+
         private void OnValidate()
+        {
+            GenerateTextureClipsDict();
+        }
+
+        private void GenerateTextureClipsDict()
         {
             textureClipsDict = new Dictionary<Texture, AudioClip[]>();
             foreach (var textureSounds in _textureSounds)
