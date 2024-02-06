@@ -3139,17 +3139,18 @@ MonoBehaviour:
   m_text: '<size=110%><b>Ye Controls:</b></size>
 
     <indent=2.5%>* Use ye <b>WASD</b>
-    keys to move!</indent>
+    or <b>arrow</b> keys to move!</indent>
 
-    <indent=2.5%>* Use <b>mouse0</b> or <b>q</b> to swing
-    from port, and use <b>mouse1</b> or <b>e</b> to swing from starboard. And assert
-    dominance wit'' <b>t</b>.</indent>
-
-    <indent=2.5%>* <b>TICKLE</b> those scurvy
-    dogs wit'' yer <b>COMICALLY LARGE FEATHER</b> to make them collapse <b>FROM LAUGHTER</b>.</indent>
+    <indent=2.5%>* Use <b>mouse0</b>,
+    <b>q</b>, or <b>z</b> to swing from port, and use <b>mouse1</b>, <b>e</b>, or
+    <b>c</b> to swing from starboard. And assert dominance wit'' <b>t</b> or <b>x</b>.</indent>
 
     <indent=2.5%>*
-    Do not let yerself get <b>TICKLED</b> by those <b>FRIENDLY</b> pirates!</indent>
+    <b>TICKLE</b> those scurvy dogs wit'' yer <b>COMICALLY LARGE FEATHER</b> to make
+    them collapse <b>FROM LAUGHTER</b>.</indent>
+
+    <indent=2.5%>* Do not let yerself
+    get <b>TICKLED</b> by those <b>FRIENDLY</b> pirates!</indent>
 
     <indent=2.5%>*
     <b>TICKLE</b> all those <b>FRIENDS</b> - none shall be spared the <b>FRIENDSHIP</b>
@@ -3936,7 +3937,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: v0.1 (debug)
+  m_text: v0.2.3 (debug)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a72aed76e938b3c40b9aa9221c456dfd, type: 2}
   m_sharedMaterial: {fileID: 2033646582103984595, guid: a72aed76e938b3c40b9aa9221c456dfd, type: 2}
@@ -3963,7 +3964,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 64.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

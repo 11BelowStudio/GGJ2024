@@ -110,17 +110,17 @@ namespace Scripts.Game.Pirates
             _mover.verticalInput = vertical;
             _mover.horizontalInput = horizontal;
 
-            if (UnityEngine.Input.GetMouseButtonDown(1) || UnityEngine.Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Z))
+            if (UnityEngine.Input.GetMouseButtonDown(1) || UnityEngine.Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.C))
             {
                 _mover.DoAttack1();
                 DoAttackAudio();
             }
-            if (UnityEngine.Input.GetMouseButtonDown(0) || UnityEngine.Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.X))
+            if (UnityEngine.Input.GetMouseButtonDown(0) || UnityEngine.Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Z))
             {
                 _mover.DoAttack2();
                 DoAttackAudio();
             }
-            if (UnityEngine.Input.GetMouseButtonDown(2) || UnityEngine.Input.GetKeyDown(KeyCode.T) || UnityEngine.Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.C))
+            if (UnityEngine.Input.GetMouseButtonDown(2) || UnityEngine.Input.GetKeyDown(KeyCode.T) || UnityEngine.Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.X))
             {
                 _mover.DoTPose();
                 DoAttackAudio();
