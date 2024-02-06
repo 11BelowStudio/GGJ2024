@@ -91,15 +91,19 @@ namespace Scripts.Game.Pirates
                 float relativeVelMag = collision.relativeVelocity.magnitude;
                 float impulseMag = impulse.magnitude;
 
-                Debug.Log($"Avast! Ye scallywag {_myPirate.name} 'ave been 'it wit' a relative velocity of {relativeVelMag} and an impulse of {impulseMag}, arr");
+                //Debug.Log($"Avast! Ye scallywag {_myPirate.name} 'ave been 'it wit' a relative velocity of {relativeVelMag} and an impulse of {impulseMag}, arr");
 
                 // TODO: idk work out if the impulse is applying more to the sword or to the hurtbox
                 // TODO: if it's applying more to hurtbox -> bigger hit (more damage)
                 // TODO: if it's applying more to sword -> lesser hit (less damage)
 
 
-                // deals the impulse force as damage
-                _myPirate.HurtMe(impulseMag);
+                // attempts to deal the impulse force as damage
+                // (method returns true if damage was dealt)
+                if (_myPirate.HurtMe(impulseMag))
+                {
+                    theSword.PlaySwordHitAudio(); // we play sword hit noise if it dealt damage.
+                }
 
                 /*
                 Vector3 contactPos = collision.GetContact(0).point;

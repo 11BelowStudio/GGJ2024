@@ -100,27 +100,27 @@ namespace Scripts.Game.Pirates
             // and input stuff
 
             float vertical = 0;
-            if (Input.GetKey(KeyCode.W)) vertical += 1;
-            if (Input.GetKey(KeyCode.S)) vertical -= 1;
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) vertical += 1;
+            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) vertical -= 1;
 
             float horizontal = 0;
-            if (Input.GetKey(KeyCode.D)) horizontal += 1;
-            if (Input.GetKey(KeyCode.A)) horizontal -= 1;
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) horizontal += 1;
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) horizontal -= 1;
 
             _mover.verticalInput = vertical;
             _mover.horizontalInput = horizontal;
 
-            if (UnityEngine.Input.GetMouseButtonDown(1) || UnityEngine.Input.GetKeyDown(KeyCode.E))
+            if (UnityEngine.Input.GetMouseButtonDown(1) || UnityEngine.Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Z))
             {
                 _mover.DoAttack1();
                 DoAttackAudio();
             }
-            if (UnityEngine.Input.GetMouseButtonDown(0) || UnityEngine.Input.GetKeyDown(KeyCode.Q))
+            if (UnityEngine.Input.GetMouseButtonDown(0) || UnityEngine.Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.X))
             {
                 _mover.DoAttack2();
                 DoAttackAudio();
             }
-            if (UnityEngine.Input.GetMouseButtonDown(2) || UnityEngine.Input.GetKeyDown(KeyCode.T) || UnityEngine.Input.GetKeyDown(KeyCode.R))
+            if (UnityEngine.Input.GetMouseButtonDown(2) || UnityEngine.Input.GetKeyDown(KeyCode.T) || UnityEngine.Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.C))
             {
                 _mover.DoTPose();
                 DoAttackAudio();

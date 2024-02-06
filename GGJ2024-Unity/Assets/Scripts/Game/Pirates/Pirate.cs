@@ -156,15 +156,15 @@ namespace Scripts.Game.Pirates
         }
 
 
-        public virtual void HurtMe(float damageToDeal, bool respectGracePeriod = true)
+        public virtual bool HurtMe(float damageToDeal, bool respectGracePeriod = true)
         {
 
-            if (_isDed) { return; }
+            if (_isDed) { return false; }
 
             if (respectGracePeriod && _gracePeriodLeft  > 0f)
             {
                 // arr, no 'arrmin' another pirate during thar grace period, arr...
-                return;
+                return false;
             }
 
             _helf = Mathf.Clamp(_helf - damageToDeal, 0f, _maxHelf);
@@ -196,6 +196,7 @@ namespace Scripts.Game.Pirates
                     _gracePeriodLeft = _gracePeriodLength;
                 }
             }
+            return true;
             
         }
     }
