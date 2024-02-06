@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25a70e25ea9fe474988a0e3990581d5d, type: 3}
   m_Name: SpawnNoiseHolders
   m_EditorClassIdentifier: 
-  audioClips: []
+  audioClips:
+  - {fileID: 8300000, guid: 17c8ac00c71d6d642bdf9882bbcfbfe6, type: 3}
+  - {fileID: 8300000, guid: 5f224d002e4579345afb3a25f13a6484, type: 3}
+  - {fileID: 8300000, guid: 4239634fdfd37a14abd519bc969bbbab, type: 3}
+  - {fileID: 8300000, guid: 9b4be113b3e14d046a56327251182856, type: 3}
+  - {fileID: 8300000, guid: ff8cc9d2d4485834888101f6896a0833, type: 3}

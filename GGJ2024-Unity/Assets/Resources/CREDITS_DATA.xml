@@ -247,6 +247,42 @@ For example:
 <license>MIT</license>
 </asset>
 
+<asset>
+<assetname>pirate-yar.mp3</assetname>
+<author>kookienomz</author>
+<from>https://freesound.org/people/kookienomz/sounds/519426/</from>
+<license>CC0</license>
+</asset>
+
+<asset>
+<assetname>Me Hearties.wav</assetname>
+<author>CaptainCuthbertandScatthecat</author>
+<from>https://freesound.org/people/CaptainCuthbertandScatthecat/sounds/511564/</from>
+<license>CC-BY-3.0</license>
+</asset>
+
+<asset>
+<assetname>Ye Scurvy rats.wav</assetname>
+<author>CaptainCuthbertandScatthecat</author>
+<from>https://freesound.org/people/CaptainCuthbertandScatthecat/sounds/511563/</from>
+<license>CC-BY-3.0</license>
+</asset>
+
+<asset>
+<assetname>Avast voice.wav</assetname>
+<author>CaptainCuthbertandScatthecat</author>
+<from>https://freesound.org/people/CaptainCuthbertandScatthecat/sounds/511558/</from>
+<license>CC-BY-3.0</license>
+</asset>
+
+<asset>
+<assetname>Ahoy voice.wav</assetname>
+<author>CaptainCuthbertandScatthecat</author>
+<from>https://freesound.org/people/CaptainCuthbertandScatthecat/sounds/511559/</from>
+<license>CC-BY-3.0</license>
+</asset>
+
+
 <!--
 <asset>
 <assetname>haha 'ass'et lmao</assetname>

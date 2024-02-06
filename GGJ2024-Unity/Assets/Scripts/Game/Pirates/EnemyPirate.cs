@@ -21,7 +21,7 @@ namespace Scripts.Game.Pirates
         public Action<EnemyPirate> OnDedReference;
 
         private const float _minIdleNoiseDelay = 7.5f;
-        private const float _maxIdleNoiseDelay = 30f;
+        private const float _maxIdleNoiseDelay = 25f;
 
         private float IdleNoiseDelay { get { return UnityEngine.Random.Range(_minIdleNoiseDelay, _maxIdleNoiseDelay); } }
 
