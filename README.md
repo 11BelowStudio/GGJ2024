@@ -13,10 +13,10 @@ And thus, marooned on a **VERY PLEASANT** island and surrounded by **THOSE VERY 
 ## CONTROLS
 
 * Use yer pointer t' select yer options in yer menu.
-* Use yer WASD button t' move yer legs around
-* Use yer Q or port pointer clicker t' swing from port.
-* Use yer E or starboard pointer clicker t' swing from starboard.
-* Use yer T or bow pointer clicker t' assert dominance.
+* Use yer WASD or arrow buttons t' move yer legs around
+* Use yer Q or Z or port pointer clicker t' swing from port.
+* Use yer E or C or starboard pointer clicker t' swing from starboard.
+* Use yer T or X or bow pointer clicker t' assert dominance.
 
 * Wallop yer FRIENDS wit' yer Feathersword t' TICKLE 'em.
   * t' 'arder t' wallop, t' more it tickles!
@@ -32,4 +32,40 @@ And thus, marooned on a **VERY PLEASANT** island and surrounded by **THOSE VERY 
 * https://globalgamejam.org/games/2024/feathersword-1
 * https://github.com/11BelowStudio/GGJ2024
 
-## t' credits be in t' game!
+## This game be created by:
+
+* 11BelowStudio https://11belowstudio.itch.io
+  * Gameplay design, writing, prototyping/bodging, and overall Unity implementation malarkey
+* Yang https://a-big-owl.itch.io
+  * Visual style design, 3D modelling, and environment art
+* jujubee0728 https://jujuuv.cargo.site/Sound-design
+  * Sound effects
+* Moktar Ali https://moktarali8.artstation.com
+  * Concept art
+* Matthew Harper https://soundcloud.com/mattharper-3
+  * Music
+* Kobby6-lang
+  * 3D modelling
+
+### t' full credits be in t' game!
+
+---
+
+## Ye Log o' changes
+
+### 0.3.0 (6/2/2024)
+
+* There be extra options for controllin' t' captain!
+  * This be explained in t' instructions in t' game an' above.
+* Ye sound effects 'ave been improved.
+  * Noises now play fer TICKLING an enemy wit yer sword.
+  * There be more noises for enemies gettin' TICKLED but still standin'
+  * Yer feet now be makin' noises when steppin on t' ground.
+  * T' pirates now be makin' noises upon spawnin' in.
+* There now be lightin' in t' game!
+* There also be occlusion fer 'opefully makin' t' game run swifter.
+* T' island be mildly less desolate.
+
+### 0.2.2 (28/1/2024)
+
+* This version be t' version released for t' game jam.

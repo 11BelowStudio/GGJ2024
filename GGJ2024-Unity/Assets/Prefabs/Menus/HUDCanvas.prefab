@@ -3143,7 +3143,7 @@ MonoBehaviour:
 
     <indent=2.5%>* Use <b>mouse0</b>,
     <b>q</b>, or <b>z</b> to swing from port, and use <b>mouse1</b>, <b>e</b>, or
-    <b>c</b> to swing from starboard. And assert dominance wit'' <b>t</b> or <b>x</b>.</indent>
+    <b>c</b> to swing from starboard. Assert dominance wit'' <b>t</b> or <b>x</b>.</indent>
 
     <indent=2.5%>*
     <b>TICKLE</b> those scurvy dogs wit'' yer <b>COMICALLY LARGE FEATHER</b> to make
@@ -3937,7 +3937,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: v0.2.3 (debug)
+  m_text: v0.3.0 (debug)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a72aed76e938b3c40b9aa9221c456dfd, type: 2}
   m_sharedMaterial: {fileID: 2033646582103984595, guid: a72aed76e938b3c40b9aa9221c456dfd, type: 2}
@@ -3964,7 +3964,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 64.25
+  m_fontSize: 63.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
