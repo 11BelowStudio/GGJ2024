@@ -17,7 +17,6 @@ And thus, marooned on a **VERY PLEASANT** island and surrounded by **THOSE VERY 
 * Use yer Q or Z or port pointer clicker t' swing from port.
 * Use yer E or C or starboard pointer clicker t' swing from starboard.
 * Use yer T or X or bow pointer clicker t' assert dominance.
-
 * Wallop yer FRIENDS wit' yer Feathersword t' TICKLE 'em.
   * t' 'arder t' wallop, t' more it tickles!
 * Avoid yer FRIENDS attempts at walloping you!
