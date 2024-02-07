@@ -86,3 +86,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /GGJ2024-Unity/[Aa]ssets/[Ss]treamingAssets/aa.meta
 /GGJ2024-Unity/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+/itch.io page assets/animated cover image/Featherswords Revenge cover image gif.osp
+/itch.io page assets/animated cover image/Featherswords Revenge cover image gif_assets/*
